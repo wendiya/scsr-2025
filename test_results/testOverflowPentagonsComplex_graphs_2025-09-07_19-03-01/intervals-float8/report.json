@@ -1,0 +1,80 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/overflow.imp':19:6] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':20:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential float8 overflow detected: value 32767 exceeds maximum 127.0 for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':22:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential float8 underflow detected: value -32768 below minimum -127.0 for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential float8 overflow detected: value 32768 exceeds maximum 127.0 for variable 'r'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential float8 underflow detected: value -32767 below minimum -127.0 for variable 'r'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Variable 'r' has interval [-32767, 32768] that may exceed float8 bounds [-127.0, 127.0]"
+  }, {
+    "message" : "['inputs/overflow.imp':24:16] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential float8 overflow detected: value 32767 exceeds maximum 127.0 for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:16] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential float8 underflow detected: value -32768 below minimum -127.0 for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:16] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Variable 'x' has interval [-32768, 32767] that may exceed float8 bounds [-127.0, 127.0]"
+  }, {
+    "message" : "['inputs/overflow.imp':28:14] on 'untyped overflow::f3(overflow* this, untyped i)': [EXPRESSION] Variable 'i' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':32:10] on 'untyped overflow::f4(overflow* this, untyped a, untyped b)': [EXPRESSION] Variable 'a' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':32:14] on 'untyped overflow::f4(overflow* this, untyped a, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':32:6] on 'untyped overflow::f4(overflow* this, untyped a, untyped b)': [EXPRESSION] Variable 'x' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':38:9] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':39:7] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':40:7] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':43:2] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'c' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':43:6] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'c' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':49:5] on 'untyped overflow::f6(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':50:10] on 'untyped overflow::f6(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':51:20] on 'untyped overflow::f6(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential float8 overflow/underflow"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_overflow.f1(overflow__this).html", "untyped_overflow.f2(overflow__this,_untyped_b).html", "untyped_overflow.f3(overflow__this,_untyped_i).html", "untyped_overflow.f4(overflow__this,_untyped_a,_untyped_b).html", "untyped_overflow.f5(overflow__this,_untyped_b).html", "untyped_overflow.f6(overflow__this,_untyped_b).html" ],
+  "info" : {
+    "cfgs" : "6",
+    "duration" : "9ms",
+    "end" : "2025-09-07T17:18:37.292+02:00",
+    "expressions" : "75",
+    "files" : "9",
+    "globals" : "0",
+    "members" : "6",
+    "programs" : "1",
+    "start" : "2025-09-07T17:18:37.283+02:00",
+    "statements" : "32",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "21"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "OverflowChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/overflow/intervals-float8"
+  }
+}

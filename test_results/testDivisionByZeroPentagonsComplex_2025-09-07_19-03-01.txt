@@ -1,0 +1,91 @@
+========================================
+Running: testDivisionByZeroPentagonsComplex
+Started at: Sun Sep  7 19:03:38 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testDivisionByZeroPentagonsComplex STANDARD_OUT
+    === STARTING DIVISION BY ZERO ANALYSIS: PENTAGONS DOMAIN COMPLEX ===
+    Input file: inputs/divbyzero-complex.imp
+    Target type: INT32 for divisor analysis
+    Domain: Pentagons (relational domain)
+    Expected: precision for relational constraints on divisors
+    --- Starting division by zero analysis setup ---
+    Reading program from: inputs/divbyzero-complex.imp
+    2025-09-07 19:03:38,771  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/divbyzero-complex.imp 
+    Program parsed successfully. CFGs found: 1
+    Output directory: outputs/divbyzero/divbyzero-pentagons-complex
+    Target numerical type for precision: int32
+    Abstract domain: Pentagons (relational domain)
+    Configuration complete. Starting LiSA analysis...
+    Note: Custom division-by-zero checker omitted due to type incompatibility with Pentagons domain
+    Analysis will rely on built-in LiSA capabilities for Pentagons domain
+    2025-09-07 19:03:38,819  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (0)
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/divbyzero/divbyzero-pentagons-complex
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:38,832  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:38,832  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:38,834  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 858459ns] 
+    2025-09-07 19:03:38,834  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:38,835  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:38,836  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:38,836  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:38,837  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:38,868  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 32ms 63375ns] 
+    2025-09-07 19:03:38,869  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 34ms 72875ns] 
+    2025-09-07 19:03:38,869  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:38,869  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:38,891  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 22ms 84583ns] 
+    2025-09-07 19:03:38,903  WARN it.unive.lisa.LiSARunner - Skipping semantic checks execution since none have been provided 
+    2025-09-07 19:03:38,903  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 71ms 305458ns] 
+    2025-09-07 19:03:38,913  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 84ms (started: 2025-09-07T19:03:38.821+02:00, ended: 2025-09-07T19:03:38.905+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 19
+    Expressions: 56
+    Generated Warnings: 0
+    Generated Files: 4 
+    2025-09-07 19:03:38,913  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:38,964  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Division by zero analysis setup finished ---
+    Analysis completed. Check outputs/divbyzero/divbyzero-pentagons-complex/ for detailed results
+    Compare with intervals domain for relational analysis benefits
+    === DIVISION BY ZERO ANALYSIS PENTAGONS COMPLEX FINISHED ===
+
+
+BUILD SUCCESSFUL in 695ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:39 CEST 2025
+Exit code: 0
+========================================

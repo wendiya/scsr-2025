@@ -1,0 +1,115 @@
+========================================
+Running: testTaintThreeLevelsComplex
+Started at: Sun Sep  7 19:03:41 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testTaintThreeLevelsComplex STANDARD_OUT
+    === STARTING TAINT ANALYSIS: THREE LEVELS COMPLEX ===
+    Input file: inputs/taint-complex.imp
+    Domain: TaintThreeLevels (TOP/TAINT/CLEAN/BOTTOM)
+    Expected: Definite taint flows, possible taint flows, sanitization effectiveness
+    --- Starting taint three levels analysis setup ---
+    Reading program from: inputs/taint-complex.imp
+    2025-09-07 19:03:42,048  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/taint-complex.imp 
+    Program parsed successfully. CFGs found: 8
+    --- Loading taint annotations ---
+    Annotated sanitizer: sanitizer2
+    Annotated sink parameter: this in function sink1
+    Annotated sink parameter: data in function sink1
+    Annotated sink parameter: this in function sinks
+    Annotated sink parameter: data1 in function sinks
+    Annotated source: source2
+    Annotated sanitizer: sanitizer1
+    Annotated source: source1
+    Annotation summary: 2 sources, 2 sanitizers, 4 sink parameters
+    --- Taint annotations loading completed ---
+    Taint annotations loaded for sources, sanitizers, and sinks
+    Output directory: outputs/taint/taint-complex-3lvs
+    Abstract domain: TaintThreeLevels (TOP/TAINT/CLEAN/BOTTOM)
+    Configuration complete. Starting LiSA analysis...
+    2025-09-07 19:03:42,101  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (1):
+        TaintThreeLevelsChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/taint/taint-complex-3lvs
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:42,113  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:42,113  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:42,115  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 437083ns] 
+    2025-09-07 19:03:42,115  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:42,116  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:42,117  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:42,117  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:42,118  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/8 
+    2025-09-07 19:03:42,121  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 2/8 
+    2025-09-07 19:03:42,122  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 3/8 
+    2025-09-07 19:03:42,123  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 4/8 
+    2025-09-07 19:03:42,124  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 5/8 
+    2025-09-07 19:03:42,124  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 6/8 
+    2025-09-07 19:03:42,124  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 7/8 
+    2025-09-07 19:03:42,125  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 8/8 
+    2025-09-07 19:03:42,130  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [8 entries in 12ms 588667ns] 
+    2025-09-07 19:03:42,130  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 14ms 515584ns] 
+    2025-09-07 19:03:42,130  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:42,130  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/8 
+    2025-09-07 19:03:42,142  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 2/8 
+    2025-09-07 19:03:42,144  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 3/8 
+    2025-09-07 19:03:42,146  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 4/8 
+    2025-09-07 19:03:42,147  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 5/8 
+    2025-09-07 19:03:42,158  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 6/8 
+    2025-09-07 19:03:42,160  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 7/8 
+    2025-09-07 19:03:42,161  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 8/8 
+    2025-09-07 19:03:42,162  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [8 cfgs in 31ms 812542ns] 
+    2025-09-07 19:03:42,174  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:42,174  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:42,174  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 528125ns] 
+    2025-09-07 19:03:42,174  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 61ms 675959ns] 
+    2025-09-07 19:03:42,184  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 74ms (started: 2025-09-07T19:03:42.102+02:00, ended: 2025-09-07T19:03:42.176+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 8
+    CFGs: 8
+    Statements: 42
+    Expressions: 89
+    Generated Warnings: 0
+    Generated Files: 11 
+    2025-09-07 19:03:42,184  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:42,233  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Taint three levels analysis setup finished ---
+    Analysis completed. Check outputs/taint/taint-complex-3lvs/ for detailed results
+    === TAINT ANALYSIS THREE LEVELS COMPLEX FINISHED ===
+
+
+BUILD SUCCESSFUL in 672ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:42 CEST 2025
+Exit code: 0
+========================================

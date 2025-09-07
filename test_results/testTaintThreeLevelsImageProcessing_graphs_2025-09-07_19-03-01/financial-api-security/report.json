@@ -1,0 +1,150 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/financial_api_security.imp':102:30] on 'untyped FinancialAPI::getAccountBalance(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':102:30] on 'untyped FinancialAPI::getAccountBalance(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':103:25] on 'untyped FinancialAPI::getAccountBalance(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':103:25] on 'untyped FinancialAPI::getAccountBalance(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':104:38] on 'untyped FinancialAPI::getAccountBalance(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'accountData' of updateBalance"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':104:38] on 'untyped FinancialAPI::getAccountBalance(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateBalance"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':115:32] on 'untyped FinancialAPI::processPayment(FinancialAPI* this, untyped isPrivilegedUser)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':115:32] on 'untyped FinancialAPI::processPayment(FinancialAPI* this, untyped isPrivilegedUser)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':116:32] on 'untyped FinancialAPI::processPayment(FinancialAPI* this, untyped isPrivilegedUser)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':116:32] on 'untyped FinancialAPI::processPayment(FinancialAPI* this, untyped isPrivilegedUser)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':117:45] on 'untyped FinancialAPI::processPayment(FinancialAPI* this, untyped isPrivilegedUser)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':117:45] on 'untyped FinancialAPI::processPayment(FinancialAPI* this, untyped isPrivilegedUser)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'txData' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':127:35] on 'untyped FinancialAPI::storeSensitiveData(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':128:27] on 'untyped FinancialAPI::storeSensitiveData(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':128:27] on 'untyped FinancialAPI::storeSensitiveData(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':130:35] on 'untyped FinancialAPI::storeSensitiveData(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':131:27] on 'untyped FinancialAPI::storeSensitiveData(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':131:27] on 'untyped FinancialAPI::storeSensitiveData(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':138:28] on 'untyped FinancialAPI::calculateInterest(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':138:28] on 'untyped FinancialAPI::calculateInterest(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':139:23] on 'untyped FinancialAPI::calculateInterest(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':139:23] on 'untyped FinancialAPI::calculateInterest(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':140:36] on 'untyped FinancialAPI::calculateInterest(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'accountData' of updateBalance"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':140:36] on 'untyped FinancialAPI::calculateInterest(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateBalance"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':151:38] on 'untyped FinancialAPI::processBatchTransactions(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':151:38] on 'untyped FinancialAPI::processBatchTransactions(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':152:38] on 'untyped FinancialAPI::processBatchTransactions(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':152:38] on 'untyped FinancialAPI::processBatchTransactions(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':153:51] on 'untyped FinancialAPI::processBatchTransactions(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':153:51] on 'untyped FinancialAPI::processBatchTransactions(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'txData' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':164:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':165:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':165:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':166:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':168:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':169:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':169:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':170:24] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':172:37] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':173:37] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'txData' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':173:37] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':174:37] on 'untyped FinancialAPI::validatePaymentChain(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':63:30] on 'untyped FinancialAPI::processTransfer(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':63:30] on 'untyped FinancialAPI::processTransfer(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':64:25] on 'untyped FinancialAPI::processTransfer(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':64:25] on 'untyped FinancialAPI::processTransfer(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':65:41] on 'untyped FinancialAPI::processTransfer(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'txData' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':65:41] on 'untyped FinancialAPI::processTransfer(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeTransaction"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':78:27] on 'untyped FinancialAPI::processTransferSecure(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':80:30] on 'untyped FinancialAPI::processTransferSecure(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':86:29] on 'untyped FinancialAPI::processMarketData(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':86:29] on 'untyped FinancialAPI::processMarketData(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':87:29] on 'untyped FinancialAPI::processMarketData(FinancialAPI* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':87:29] on 'untyped FinancialAPI::processMarketData(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':94:32] on 'untyped FinancialAPI::processMarketDataSecure(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/financial_api_security.imp':95:32] on 'untyped FinancialAPI::processMarketDataSecure(FinancialAPI* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_FinancialAPI.calculateInterest(FinancialAPI__this).html", "untyped_FinancialAPI.encryptSensitive(FinancialAPI__this,_untyped_data).html", "untyped_FinancialAPI.encryptSensitive(FinancialAPI__this,_untyped_data)_-202633661.html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData).html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData)_-202647177.html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData)_-202654059.html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData)_-202659515.html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData)_-202659980.html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData)_-202660011.html", "untyped_FinancialAPI.executeTransaction(FinancialAPI__this,_untyped_txData)_-202660042.html", "untyped_FinancialAPI.getAPIRequest(FinancialAPI__this).html", "untyped_FinancialAPI.getAPIRequest(FinancialAPI__this)_-202654617.html", "untyped_FinancialAPI.getAPIRequest(FinancialAPI__this)_-202657438.html", "untyped_FinancialAPI.getAPIRequest(FinancialAPI__this)_-202657748.html", "untyped_FinancialAPI.getAPIRequest(FinancialAPI__this)_-202661592.html", "untyped_FinancialAPI.getAccountBalance(FinancialAPI__this).html", "untyped_FinancialAPI.getExternalFeed(FinancialAPI__this).html", "untyped_FinancialAPI.getExternalFeed(FinancialAPI__this)_-202658275.html", "untyped_FinancialAPI.getTransactionData(FinancialAPI__this).html", "untyped_FinancialAPI.getTransactionData(FinancialAPI__this)_-202647208.html", "untyped_FinancialAPI.getTransactionData(FinancialAPI__this)_-202648293.html", "untyped_FinancialAPI.getTransactionData(FinancialAPI__this)_-202650742.html", "untyped_FinancialAPI.getTransactionData(FinancialAPI__this)_-202651052.html", "untyped_FinancialAPI.getTransactionData(FinancialAPI__this)_-202654586.html", "untyped_FinancialAPI.processBatchTransactions(FinancialAPI__this).html", "untyped_FinancialAPI.processMarketData(FinancialAPI__this).html", "untyped_FinancialAPI.processMarketDataSecure(FinancialAPI__this).html", "untyped_FinancialAPI.processPayment(FinancialAPI__this,_untyped_isPrivilegedUser).html", "untyped_FinancialAPI.processTransfer(FinancialAPI__this).html", "untyped_FinancialAPI.processTransferSecure(FinancialAPI__this).html", "untyped_FinancialAPI.sanitizer1(FinancialAPI__this,_untyped_data).html", "untyped_FinancialAPI.sanitizer1(FinancialAPI__this,_untyped_data)_-202646185.html", "untyped_FinancialAPI.sanitizer1(FinancialAPI__this,_untyped_data)_-202650494.html", "untyped_FinancialAPI.sanitizer2(FinancialAPI__this,_untyped_transaction).html", "untyped_FinancialAPI.sanitizer2(FinancialAPI__this,_untyped_transaction)_-202644604.html", "untyped_FinancialAPI.sanitizer2(FinancialAPI__this,_untyped_transaction)_-202656508.html", "untyped_FinancialAPI.sendAuditLog(FinancialAPI__this,_untyped_auditData).html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query).html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202659732.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202663359.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202666614.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202667265.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202668939.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202670148.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202670396.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202671016.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202672566.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202672721.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202672752.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202672783.html", "untyped_FinancialAPI.sink1(FinancialAPI__this,_untyped_query)_-202674519.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry).html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202659701.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202663266.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202666583.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202667234.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202669621.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202669745.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202670365.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202670923.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202672597.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202672628.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202672659.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202673713.html", "untyped_FinancialAPI.sinks(FinancialAPI__this,_untyped_logEntry)_-202674922.html", "untyped_FinancialAPI.source1(FinancialAPI__this).html", "untyped_FinancialAPI.source1(FinancialAPI__this)_-202658926.html", "untyped_FinancialAPI.source1(FinancialAPI__this)_-202661189.html", "untyped_FinancialAPI.source1(FinancialAPI__this)_-202661592.html", "untyped_FinancialAPI.source1(FinancialAPI__this)_-202661809.html", "untyped_FinancialAPI.source2(FinancialAPI__this).html", "untyped_FinancialAPI.source2(FinancialAPI__this)_-202659515.html", "untyped_FinancialAPI.source2(FinancialAPI__this)_-202660104.html", "untyped_FinancialAPI.source2(FinancialAPI__this)_-202666056.html", "untyped_FinancialAPI.source2(FinancialAPI__this)_-202666366.html", "untyped_FinancialAPI.storeSensitiveData(FinancialAPI__this).html", "untyped_FinancialAPI.updateBalance(FinancialAPI__this,_untyped_accountData).html", "untyped_FinancialAPI.updateBalance(FinancialAPI__this,_untyped_accountData)_-202661189.html", "untyped_FinancialAPI.updateBalance(FinancialAPI__this,_untyped_accountData)_-202661995.html", "untyped_FinancialAPI.validateAccount(FinancialAPI__this,_untyped_account).html", "untyped_FinancialAPI.validateAccount(FinancialAPI__this,_untyped_account)_-202638125.html", "untyped_FinancialAPI.validateAccount(FinancialAPI__this,_untyped_account)_-202641938.html", "untyped_FinancialAPI.validateAmount(FinancialAPI__this,_untyped_amount).html", "untyped_FinancialAPI.validateAmount(FinancialAPI__this,_untyped_amount)_-202647921.html", "untyped_FinancialAPI.validateAmount(FinancialAPI__this,_untyped_amount)_-202648634.html", "untyped_FinancialAPI.validatePaymentChain(FinancialAPI__this).html" ],
+  "info" : {
+    "cfgs" : "25",
+    "duration" : "137ms",
+    "end" : "2025-09-07T18:56:17.675+02:00",
+    "expressions" : "203",
+    "files" : "89",
+    "globals" : "0",
+    "members" : "25",
+    "programs" : "1",
+    "start" : "2025-09-07T18:56:17.538+02:00",
+    "statements" : "96",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "56"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "TaintThreeLevelsChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/taint/financial-api-security"
+  }
+}

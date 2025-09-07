@@ -1,0 +1,157 @@
+========================================
+Running: testWebApplicationSecurity
+Started at: Sun Sep  7 19:04:01 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testWebApplicationSecurity STANDARD_OUT
+    === STARTING WEB APPLICATION SECURITY TAINT ANALYSIS ===
+    --- Starting taint analysis setup ---
+    Reading program from: inputs/web_application_security.imp
+    2025-09-07 19:04:02,247  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/web_application_security.imp 
+    Program parsed successfully. CFGs found: 25
+    --- Loading taint annotations ---
+    Annotated source: getUrlParameter
+    Annotated source: source2
+    Annotated sanitizer: sanitizer1
+    Annotated sink parameter: this in executeQuery
+    Annotated sink parameter: sql in executeQuery
+    Annotated sink parameter: this in logMessage
+    Annotated sink parameter: message in logMessage
+    Annotated sanitizer: htmlEncode
+    Annotated sanitizer: validateInput
+    Annotated source: getCookieValue
+    Annotated sanitizer: sanitizer2
+    Annotated sink parameter: this in sink1
+    Annotated sink parameter: query in sink1
+    Annotated source: getUserInput
+    Annotated sink parameter: this in sinks
+    Annotated sink parameter: html in sinks
+    Annotated sanitizer: sqlEscape
+    Annotated sink parameter: this in renderPage
+    Annotated sink parameter: content in renderPage
+    Annotated source: source1
+    Annotation summary: 5 sources, 5 sanitizers, 10 sink parameters
+    --- Taint annotations loading completed ---
+    Taint annotations loaded
+    Output directory: outputs/taint/web-application-security
+    Abstract domain: TaintThreeLevels
+    Configuration complete. Starting LiSA analysis...
+    2025-09-07 19:04:02,305  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (1):
+        TaintThreeLevelsChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/taint/web-application-security
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:04:02,319  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:04:02,319  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:04:02,321  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 683500ns] 
+    2025-09-07 19:04:02,321  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:04:02,322  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:04:02,323  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:04:02,323  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:04:02,324  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/25 
+    2025-09-07 19:04:02,327  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 2/25 
+    2025-09-07 19:04:02,328  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 3/25 
+    2025-09-07 19:04:02,328  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 4/25 
+    2025-09-07 19:04:02,328  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 5/25 
+    2025-09-07 19:04:02,328  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 6/25 
+    2025-09-07 19:04:02,328  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 7/25 
+    2025-09-07 19:04:02,329  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 8/25 
+    2025-09-07 19:04:02,329  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 9/25 
+    2025-09-07 19:04:02,329  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 10/25 
+    2025-09-07 19:04:02,329  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 11/25 
+    2025-09-07 19:04:02,329  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 12/25 
+    2025-09-07 19:04:02,330  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 13/25 
+    2025-09-07 19:04:02,330  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 14/25 
+    2025-09-07 19:04:02,330  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 15/25 
+    2025-09-07 19:04:02,330  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 16/25 
+    2025-09-07 19:04:02,335  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 17/25 
+    2025-09-07 19:04:02,336  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 18/25 
+    2025-09-07 19:04:02,337  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 19/25 
+    2025-09-07 19:04:02,339  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 20/25 
+    2025-09-07 19:04:02,339  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 21/25 
+    2025-09-07 19:04:02,342  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 22/25 
+    2025-09-07 19:04:02,346  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 23/25 
+    2025-09-07 19:04:02,347  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 24/25 
+    2025-09-07 19:04:02,351  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 25/25 
+    2025-09-07 19:04:02,353  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [25 entries in 29ms 835083ns] 
+    2025-09-07 19:04:02,353  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 31ms 800917ns] 
+    2025-09-07 19:04:02,354  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:04:02,354  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/25 
+    2025-09-07 19:04:02,367  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 2/25 
+    2025-09-07 19:04:02,371  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 3/25 
+    2025-09-07 19:04:02,376  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 4/25 
+    2025-09-07 19:04:02,378  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 5/25 
+    2025-09-07 19:04:02,379  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 6/25 
+    2025-09-07 19:04:02,384  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 7/25 
+    2025-09-07 19:04:02,387  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 8/25 
+    2025-09-07 19:04:02,390  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 9/25 
+    2025-09-07 19:04:02,393  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 10/25 
+    2025-09-07 19:04:02,394  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 11/25 
+    2025-09-07 19:04:02,396  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 12/25 
+    2025-09-07 19:04:02,397  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 13/25 
+    2025-09-07 19:04:02,399  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 14/25 
+    2025-09-07 19:04:02,401  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 15/25 
+    2025-09-07 19:04:02,403  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 16/25 
+    2025-09-07 19:04:02,404  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 17/25 
+    2025-09-07 19:04:02,411  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 18/25 
+    2025-09-07 19:04:02,413  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 19/25 
+    2025-09-07 19:04:02,420  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 20/25 
+    2025-09-07 19:04:02,421  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 21/25 
+    2025-09-07 19:04:02,422  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 22/25 
+    2025-09-07 19:04:02,423  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 23/25 
+    2025-09-07 19:04:02,424  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 24/25 
+    2025-09-07 19:04:02,425  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 25/25 
+    2025-09-07 19:04:02,427  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [25 cfgs in 73ms 210042ns] 
+    2025-09-07 19:04:02,437  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:04:02,437  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:04:02,439  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 2ms 198250ns] 
+    2025-09-07 19:04:02,440  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 121ms 120250ns] 
+    2025-09-07 19:04:02,449  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 134ms (started: 2025-09-07T19:04:02.307+02:00, ended: 2025-09-07T19:04:02.441+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 25
+    CFGs: 25
+    Statements: 86
+    Expressions: 176
+    Generated Warnings: 39
+    Generated Files: 76 
+    2025-09-07 19:04:02,449  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:04:02,499  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Taint analysis setup finished ---
+    === WEB APPLICATION SECURITY ANALYSIS FINISHED ===
+
+
+BUILD SUCCESSFUL in 761ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:04:02 CEST 2025
+Exit code: 0
+========================================

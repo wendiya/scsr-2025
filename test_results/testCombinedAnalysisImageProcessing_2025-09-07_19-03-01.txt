@@ -1,0 +1,98 @@
+========================================
+Running: testCombinedAnalysisImageProcessing
+Started at: Sun Sep  7 19:03:54 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testCombinedAnalysisImageProcessing STANDARD_OUT
+    === STARTING COMBINED ANALYSIS: IMAGE PROCESSING ===
+    Input file: inputs/image-processing.imp
+    Target type: UINT32
+    Checkers: Overflow + Division by Zero + Taint Analysis
+    Expected: Buffer overflow, scaling division by zero, pixel processing issues
+    --- Starting combined analysis setup ---
+    Reading program from: inputs/image-processing.imp
+    2025-09-07 19:03:55,639  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/image-processing.imp 
+    Program parsed successfully. CFGs found: 1
+    --- Loading taint annotations ---
+    Annotation summary: 0 sources, 0 sanitizers, 0 sink parameters
+    --- Taint annotations loading completed ---
+    Taint annotations loaded for combined analysis
+    Output directory: outputs/combined/image-combined
+    Target numerical type: uint32
+    Abstract domain: Intervals
+    Checkers: OverflowChecker + DivisionByZeroChecker + TaintChecker
+    All checkers configured. Starting LiSA analysis...
+    2025-09-07 19:03:55,687  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (3):
+        TaintChecker
+        DivisionByZeroChecker
+        OverflowChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/combined/image-combined
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:55,699  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:55,699  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:55,701  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 396208ns] 
+    2025-09-07 19:03:55,701  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:55,701  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:55,702  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:55,703  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:55,704  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:55,729  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 25ms 759000ns] 
+    2025-09-07 19:03:55,729  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 27ms 782583ns] 
+    2025-09-07 19:03:55,729  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:55,729  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:55,751  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 21ms 717333ns] 
+    2025-09-07 19:03:55,762  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:55,762  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:55,764  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 2ms 94042ns] 
+    2025-09-07 19:03:55,764  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 65ms 440000ns] 
+    2025-09-07 19:03:55,776  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 77ms (started: 2025-09-07T19:03:55.689+02:00, ended: 2025-09-07T19:03:55.766+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 24
+    Expressions: 64
+    Generated Warnings: 2
+    Generated Files: 4 
+    2025-09-07 19:03:55,776  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:55,825  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    Combined LiSA analysis completed successfully
+    --- Combined analysis setup finished ---
+    Analysis completed. Check outputs/combined/image-combined/ for detailed results
+    === COMBINED ANALYSIS IMAGE PROCESSING FINISHED ===
+
+
+BUILD SUCCESSFUL in 744ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:56 CEST 2025
+Exit code: 0
+========================================

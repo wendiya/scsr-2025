@@ -1,0 +1,40 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/image-processing.imp':33:44] on 'untyped ImageProcessing::main(ImageProcessing* this)': [EXPRESSION] Definite division by zero detected in expression: /(total_bytes, compression_ratio) (divisor is definitely zero)"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_ImageProcessing.main(ImageProcessing__this).html" ],
+  "info" : {
+    "cfgs" : "1",
+    "duration" : "77ms",
+    "end" : "2025-09-07T19:03:32.289+02:00",
+    "expressions" : "64",
+    "files" : "4",
+    "globals" : "0",
+    "members" : "1",
+    "programs" : "1",
+    "start" : "2025-09-07T19:03:32.212+02:00",
+    "statements" : "24",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "1"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "DivisionByZeroChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/divbyzero/image-divbyzero"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/taint.imp':19:14] on 'untyped taint::basic1(taint* this)': [EXPRESSION] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/taint.imp':25:14] on 'untyped taint::basic2(taint* this)': [EXPRESSION] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/taint.imp':25:14] on 'untyped taint::basic2(taint* this)': [EXPRESSION] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'v' of sink1"
+  }, {
+    "message" : "['inputs/taint.imp':33:14] on 'untyped taint::basic3(taint* this)': [EXPRESSION] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/taint.imp':45:14] on 'untyped taint::branch(taint* this, untyped b)': [EXPRESSION] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/taint.imp':45:14] on 'untyped taint::branch(taint* this, untyped b)': [EXPRESSION] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'v' of sink1"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_taint.basic1(taint__this).html", "untyped_taint.basic2(taint__this).html", "untyped_taint.basic3(taint__this).html", "untyped_taint.branch(taint__this,_untyped_b).html", "untyped_taint.sanitizer1(taint__this,_untyped_v).html", "untyped_taint.sanitizer1(taint__this,_untyped_v)_749636404.html", "untyped_taint.sink1(taint__this,_untyped_v).html", "untyped_taint.sink1(taint__this,_untyped_v)_749623539.html", "untyped_taint.sink1(taint__this,_untyped_v)_749623725.html", "untyped_taint.sink1(taint__this,_untyped_v)_749623973.html", "untyped_taint.sink1(taint__this,_untyped_v)_749624345.html", "untyped_taint.source1(taint__this).html", "untyped_taint.source1(taint__this)_749629956.html", "untyped_taint.source1(taint__this)_749632312.html", "untyped_taint.source1(taint__this)_749632498.html" ],
+  "info" : {
+    "cfgs" : "7",
+    "duration" : "13ms",
+    "end" : "2025-09-07T17:18:37.388+02:00",
+    "expressions" : "29",
+    "files" : "18",
+    "globals" : "0",
+    "members" : "7",
+    "programs" : "1",
+    "start" : "2025-09-07T17:18:37.375+02:00",
+    "statements" : "19",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "6"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "TaintChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/taint"
+  }
+}

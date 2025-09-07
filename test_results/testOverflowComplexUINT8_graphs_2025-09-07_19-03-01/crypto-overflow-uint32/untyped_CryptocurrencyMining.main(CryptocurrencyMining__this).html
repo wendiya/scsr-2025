@@ -1,0 +1,1277 @@
+<html>
+	<head>
+		<title>untyped CryptocurrencyMining::main(CryptocurrencyMining* this)</title>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+		
+		<script src="js/cytoscape-3.21.1.min.js"></script>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script src="js/cytoscape-graphml-1.0.6-hier.js"></script>
+		
+		<style>
+		body {
+			font-family: helvetica neue, helvetica, liberation sans, arial,
+				sans-serif;
+			font-size: 14px;
+			background-color: white;
+		}
+		
+		html, body, #full {
+			height: 100%;
+		}
+		
+		#full {
+			display: flex;
+			flex-direction: row;
+		}
+		
+		#cy {
+			flex-grow: 0.5;
+			z-index: 10;
+			max-width: 70%;
+		}
+		
+		#header {
+			position: fixed;
+			z-index: 11;
+			overflow-x: hidden;
+		}
+		
+		#header div {
+			background-color: #e2e2e2;
+			padding: 20px 15px;
+			margin-bottom: 10px;
+		}
+		
+		#header div b {
+			padding: 6px 0;
+			color: #333333;
+			display: block;
+			cursor: pointer;
+		}
+		
+		#header div span {
+			padding: 6px 0;
+			display: block;
+		}
+		
+		#header div span label b {
+			padding: 0;
+			display: inline;
+		}
+		
+		#header div span input {
+			margin: 0;
+		}
+		#descriptions {
+			flex-grow: 0.5;
+			z-index: 11;
+			overflow: auto;
+			font-size: 18px;
+			border-left: 2px solid #e2e2e2;
+    		padding-left: 20px;
+		}
+		.description-header {
+    		font-weight: bold;
+		}
+		#descriptions ul {
+		    padding-left: inherit;
+		    margin: 5px 0;
+		}
+		.description-nest {
+			padding-left: 15px;
+		}
+		.header-hidden {
+			display: none;
+		}
+		.description-title-wrapper {
+    		margin-top: 0.83em;
+    		margin-bottom: 0.83em;
+		}
+		.description-title {
+		    font-size: 1.5em;
+		    font-weight: bold;
+		}
+		.description-title-text {
+		    font-size: 1.5em;
+		    font-family: monospace;
+		}
+		#header-none {
+    		margin-top: 0.83em;
+    		margin-bottom: 0.83em;
+		}
+		.no-results {
+   			border: solid 2px #FF0000;  
+   			background-color: #FF000040;
+		}
+		</style>
+	</head>
+
+	<body>
+		<h1>untyped CryptocurrencyMining::main(CryptocurrencyMining* this)</h1>
+		<h3></h3>
+		<hr />
+		<div id="full">
+			<div id="header">
+				<div>
+					<b>Node border: <font color="darkgray">gray</font>, single</b> 
+					<b>Entrypoint border: black, single</b> 
+					<b>Exitpoint border: black, double</b> 
+					<b>Sequential edge: black, solid</b> 
+					<b>False edge: <font color="red">red</font>, solid</b> 
+					<b>True edge: <font color="blue">blue</font>, solid</b>
+				</div>
+				<div>
+					<input id="search" type="text" placeholder="Search node.."/>
+					<input id="next" type="button" value="Next" disabled/>
+					<input id="prev" type="button" value="Previous" disabled/>
+					<b id="relayout">Run layout</b> 
+					<b id="fit">Fit to viewport</b>
+				</div>
+			</div>
+			<div id="cy"></div>
+			<div id="descriptions">
+				<div id="header-none">
+				No node selected. Select a node to show its results.
+				</div>
+				<div id="header-node0" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">hash_rate = 1000000</span></div>
+					<span class="description-header">expressions: </span>[hash_rate]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node3" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">difficulty = 1000</span></div>
+					<span class="description-header">expressions: </span>[difficulty]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node6" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">block_reward = 50</span></div>
+					<span class="description-header">expressions: </span>[block_reward]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node9" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">total_rewards = 0</span></div>
+					<span class="description-header">expressions: </span>[total_rewards]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node12" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">power_consumption = 1500</span></div>
+					<span class="description-header">expressions: </span>[power_consumption]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node15" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">seconds_per_day = 86400</span></div>
+					<span class="description-header">expressions: </span>[seconds_per_day]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node18" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">daily_hashes = *(hash_rate, seconds_per_day)</span></div>
+					<span class="description-header">expressions: </span>[daily_hashes]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node23" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">blocks_per_day = /(daily_hashes, difficulty)</span></div>
+					<span class="description-header">expressions: </span>[blocks_per_day]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node28" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">daily_earnings = *(blocks_per_day, block_reward)</span></div>
+					<span class="description-header">expressions: </span>[daily_earnings]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node33" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">days = 365</span></div>
+					<span class="description-header">expressions: </span>[days]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[365,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,0]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node36" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">>(days, 0)</span></div>
+					<span class="description-header">expressions: </span>[days > 0]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node39" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">total_rewards = +(total_rewards, daily_earnings)</span></div>
+					<span class="description-header">expressions: </span>[total_rewards]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[4320000000,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node44" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">days = -(days, 1)</span></div>
+					<span class="description-header">expressions: </span>[days]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,364]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[4320000000,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node49" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">hash_per_watt = /(hash_rate, power_consumption)</span></div>
+					<span class="description-header">expressions: </span>[hash_per_watt]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node54" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">==(power_consumption, 0)</span></div>
+					<span class="description-header">expressions: </span>[power_consumption == 0]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node57" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">hash_per_watt = /(hash_rate, power_consumption)</span></div>
+					<span class="description-header">expressions: </span>[hash_per_watt]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node62" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">network_hash = 1000000000</span></div>
+					<span class="description-header">expressions: </span>[network_hash]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node65" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">my_share = /(hash_rate, network_hash)</span></div>
+					<span class="description-header">expressions: </span>[my_share]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,0.001]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node70" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">==(network_hash, 0)</span></div>
+					<span class="description-header">expressions: </span>[network_hash == 0]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,0.001]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node73" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">my_share = 1</span></div>
+					<span class="description-header">expressions: </span>[my_share]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[1,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node76" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">electricity_cost = 10</span></div>
+					<span class="description-header">expressions: </span>[electricity_cost]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node79" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">electricity_used = /(*(power_consumption, 24), 1000)</span></div>
+					<span class="description-header">expressions: </span>[electricity_used]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">electricity_used: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">electricity_used: </span>[36,36]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node86" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">electricity_bill = *(electricity_used, electricity_cost)</span></div>
+					<span class="description-header">expressions: </span>[electricity_bill]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_bill: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">electricity_used: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_bill: </span>[360,360]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">electricity_used: </span>[36,36]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node91" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">profit = -(daily_earnings, electricity_bill)</span></div>
+					<span class="description-header">expressions: </span>[profit]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_bill: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">electricity_used: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">profit: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_bill: </span>[360,360]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">electricity_used: </span>[36,36]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">profit: </span>[4319999640,4319999640]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node96" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">hardware_cost = 2000</span></div>
+					<span class="description-header">expressions: </span>[hardware_cost]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_bill: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">electricity_used: </span>[int32]<br/>
+							<span class="description-header">hardware_cost: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">profit: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_bill: </span>[360,360]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">electricity_used: </span>[36,36]<br/>
+							<span class="description-header">hardware_cost: </span>[2000,2000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">profit: </span>[4319999640,4319999640]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node99" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">days_to_roi = /(hardware_cost, profit)</span></div>
+					<span class="description-header">expressions: </span>[days_to_roi]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">days_to_roi: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_bill: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">electricity_used: </span>[int32]<br/>
+							<span class="description-header">hardware_cost: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">profit: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">days_to_roi: </span>[4.629630015432130915640539266341235158065892801787363111909888955453709250772067193968562460343E-7,4.629630015432130915640539266341235158065892801787363111909888955453709250772067193968562460343E-7]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_bill: </span>[360,360]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">electricity_used: </span>[36,36]<br/>
+							<span class="description-header">hardware_cost: </span>[2000,2000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">profit: </span>[4319999640,4319999640]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node104" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">ret</span></div>
+					<span class="description-header">expressions: </span>[skip]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[int32]<br/>
+							<span class="description-header">blocks_per_day: </span>[int32]<br/>
+							<span class="description-header">daily_earnings: </span>[int32]<br/>
+							<span class="description-header">daily_hashes: </span>[int32]<br/>
+							<span class="description-header">days: </span>[int32]<br/>
+							<span class="description-header">days_to_roi: </span>[int32]<br/>
+							<span class="description-header">difficulty: </span>[int32]<br/>
+							<span class="description-header">electricity_bill: </span>[int32]<br/>
+							<span class="description-header">electricity_cost: </span>[int32]<br/>
+							<span class="description-header">electricity_used: </span>[int32]<br/>
+							<span class="description-header">hardware_cost: </span>[int32]<br/>
+							<span class="description-header">hash_per_watt: </span>[int32]<br/>
+							<span class="description-header">hash_rate: </span>[int32]<br/>
+							<span class="description-header">my_share: </span>[int32]<br/>
+							<span class="description-header">network_hash: </span>[int32]<br/>
+							<span class="description-header">power_consumption: </span>[int32]<br/>
+							<span class="description-header">profit: </span>[int32]<br/>
+							<span class="description-header">seconds_per_day: </span>[int32]<br/>
+							<span class="description-header">this: </span>[CryptocurrencyMining*]<br/>
+							<span class="description-header">total_rewards: </span>[int32]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">block_reward: </span>[50,50]<br/>
+							<span class="description-header">blocks_per_day: </span>[8.64E+7,8.64E+7]<br/>
+							<span class="description-header">daily_earnings: </span>[4.3200E+9,4.3200E+9]<br/>
+							<span class="description-header">daily_hashes: </span>[86400000000,86400000000]<br/>
+							<span class="description-header">days: </span>[-Inf,365]<br/>
+							<span class="description-header">days_to_roi: </span>[4.629630015432130915640539266341235158065892801787363111909888955453709250772067193968562460343E-7,4.629630015432130915640539266341235158065892801787363111909888955453709250772067193968562460343E-7]<br/>
+							<span class="description-header">difficulty: </span>[1000,1000]<br/>
+							<span class="description-header">electricity_bill: </span>[360,360]<br/>
+							<span class="description-header">electricity_cost: </span>[10,10]<br/>
+							<span class="description-header">electricity_used: </span>[36,36]<br/>
+							<span class="description-header">hardware_cost: </span>[2000,2000]<br/>
+							<span class="description-header">hash_per_watt: </span>[666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667,666.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667]<br/>
+							<span class="description-header">hash_rate: </span>[1000000,1000000]<br/>
+							<span class="description-header">my_share: </span>[0.001,1]<br/>
+							<span class="description-header">network_hash: </span>[1000000000,1000000000]<br/>
+							<span class="description-header">power_consumption: </span>[1500,1500]<br/>
+							<span class="description-header">profit: </span>[4319999640,4319999640]<br/>
+							<span class="description-header">seconds_per_day: </span>[86400,86400]<br/>
+							<span class="description-header">total_rewards: </span>[0,+Inf]<br/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>			
+			var api;
+			var layoutOptions;
+			var cy = window.cy = cytoscape({
+				container: $('#cy'),
+				maxZoom: 100,
+				zoomingEnabled: true,
+				userZoomingEnabled: true,
+				style: [
+					{
+						selector: 'node',
+						css: {
+							'background-color': 'white',
+							'color': 'black',
+							'shape': 'rectangle',
+							'border-width': '1px',
+							'border-style': 'solid',
+							'border-color': 'darkgray',
+							'content': 'data(NODE_TEXT)',
+							'font-family': 'monospace',
+							'font-size': '18px',
+							'font-weight': 'bold',
+							'text-wrap': 'wrap',
+						}
+					},
+					{
+						selector: 'node[NODE_IS_ENTRY = "yes"]',
+						css: {
+							'border-width': '3px',
+							'border-style': 'solid',
+							'border-color': 'black',
+						}
+					},	
+					{
+						selector: 'node[NODE_IS_EXIT = "yes"]',
+						css: {
+							'border-width': '5px',
+							'border-style': 'double',
+							'border-color': 'black',
+						}
+					},
+				    {
+					    selector: 'node:selected',
+					    css: {
+							'border-color': 'orange',
+							'border-width': '2px',
+					    }
+					},
+					{
+						selector: 'edge',
+						css: {
+							'curve-style': 'bezier',
+							'width': 4,
+							'line-color': 'black',
+							'target-arrow-shape': 'triangle',
+							'target-arrow-color': 'black',
+							'arrow-scale': '2'
+						}
+					},
+					{
+						selector: 'edge[EDGE_KIND = "TrueEdge"]',
+						css: {
+							'line-color': 'blue',
+							'target-arrow-color': 'blue',
+						}
+					},
+					{
+						selector: 'edge[EDGE_KIND = "FalseEdge"]',
+						css: {
+							'line-color': 'red',
+							'target-arrow-color': 'red',
+						}
+					},			
+				],
+				
+				ready: function () {
+					var data = '<?xml version="1.0" encoding="UTF-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns   http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="NODE_IS_ENTRY" for="node" attr.name="NODE_IS_ENTRY" attr.type="string"/><key id="NODE_IS_EXIT" for="node" attr.name="NODE_IS_EXIT" attr.type="string"/><key id="NODE_TEXT" for="node" attr.name="NODE_TEXT" attr.type="string"/><key id="EDGE_KIND" for="edge" attr.name="EDGE_KIND" attr.type="string"/><graph id="graph" edgedefault="directed"><node id="node0"><data key="NODE_IS_ENTRY">yes</data><data key="NODE_TEXT">hash_rate = 1000000</data><data key="NODE_IS_EXIT">no</data></node><node id="node3"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">difficulty = 1000</data><data key="NODE_IS_EXIT">no</data></node><node id="node6"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">block_reward = 50</data><data key="NODE_IS_EXIT">no</data></node><node id="node9"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">total_rewards = 0</data><data key="NODE_IS_EXIT">no</data></node><node id="node12"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">power_consumption = 1500</data><data key="NODE_IS_EXIT">no</data></node><node id="node15"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">seconds_per_day = 86400</data><data key="NODE_IS_EXIT">no</data></node><node id="node18"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">daily_hashes = *(hash_rate, seconds_per_day)</data><data key="NODE_IS_EXIT">no</data></node><node id="node23"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">blocks_per_day = /(daily_hashes, difficulty)</data><data key="NODE_IS_EXIT">no</data></node><node id="node28"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">daily_earnings = *(blocks_per_day, block_reward)</data><data key="NODE_IS_EXIT">no</data></node><node id="node33"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">days = 365</data><data key="NODE_IS_EXIT">no</data></node><node id="node36"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">&gt;(days, 0)</data><data key="NODE_IS_EXIT">no</data></node><node id="node39"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">total_rewards = +(total_rewards, daily_earnings)</data><data key="NODE_IS_EXIT">no</data></node><node id="node44"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">days = -(days, 1)</data><data key="NODE_IS_EXIT">no</data></node><node id="node49"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">hash_per_watt = /(hash_rate, power_consumption)</data><data key="NODE_IS_EXIT">no</data></node><node id="node54"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">==(power_consumption, 0)</data><data key="NODE_IS_EXIT">no</data></node><node id="node57"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">hash_per_watt = /(hash_rate, power_consumption)</data><data key="NODE_IS_EXIT">no</data></node><node id="node62"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">network_hash = 1000000000</data><data key="NODE_IS_EXIT">no</data></node><node id="node65"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">my_share = /(hash_rate, network_hash)</data><data key="NODE_IS_EXIT">no</data></node><node id="node70"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">==(network_hash, 0)</data><data key="NODE_IS_EXIT">no</data></node><node id="node73"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">my_share = 1</data><data key="NODE_IS_EXIT">no</data></node><node id="node76"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">electricity_cost = 10</data><data key="NODE_IS_EXIT">no</data></node><node id="node79"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">electricity_used = /(*(power_consumption, 24), 1000)</data><data key="NODE_IS_EXIT">no</data></node><node id="node86"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">electricity_bill = *(electricity_used, electricity_cost)</data><data key="NODE_IS_EXIT">no</data></node><node id="node91"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">profit = -(daily_earnings, electricity_bill)</data><data key="NODE_IS_EXIT">no</data></node><node id="node96"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">hardware_cost = 2000</data><data key="NODE_IS_EXIT">no</data></node><node id="node99"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">days_to_roi = /(hardware_cost, profit)</data><data key="NODE_IS_EXIT">no</data></node><node id="node104"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">ret</data><data key="NODE_IS_EXIT">yes</data></node><edge id="edge-0-3" source="node0" target="node3" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-3-6" source="node3" target="node6" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-6-9" source="node6" target="node9" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-9-12" source="node9" target="node12" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-12-15" source="node12" target="node15" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-15-18" source="node15" target="node18" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-18-23" source="node18" target="node23" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-23-28" source="node23" target="node28" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-28-33" source="node28" target="node33" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-33-36" source="node33" target="node36" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-36-39" source="node36" target="node39" directed="true"><data key="EDGE_KIND">TrueEdge</data></edge><edge id="edge-36-49" source="node36" target="node49" directed="true"><data key="EDGE_KIND">FalseEdge</data></edge><edge id="edge-39-44" source="node39" target="node44" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-44-36" source="node44" target="node36" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-49-54" source="node49" target="node54" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-54-57" source="node54" target="node57" directed="true"><data key="EDGE_KIND">TrueEdge</data></edge><edge id="edge-54-62" source="node54" target="node62" directed="true"><data key="EDGE_KIND">FalseEdge</data></edge><edge id="edge-57-62" source="node57" target="node62" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-62-65" source="node62" target="node65" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-65-70" source="node65" target="node70" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-70-73" source="node70" target="node73" directed="true"><data key="EDGE_KIND">TrueEdge</data></edge><edge id="edge-70-76" source="node70" target="node76" directed="true"><data key="EDGE_KIND">FalseEdge</data></edge><edge id="edge-73-76" source="node73" target="node76" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-76-79" source="node76" target="node79" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-79-86" source="node79" target="node86" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-86-91" source="node86" target="node91" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-91-96" source="node91" target="node96" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-96-99" source="node96" target="node99" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-99-104" source="node99" target="node104" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge></graph></graphml>'
+					this.graphml({layoutBy: null});
+					this.graphml(data);
+					
+					layoutOptions = {
+							name: 'breadthfirst',
+							fit: false,
+							directed: true,
+							spacingFactor: 2.5,
+					};
+					var layout = this.layout(layoutOptions);
+					if (layout && layout.run) {
+						layout.run();
+					}
+					this.fit();
+				}
+			});
+			
+			function relayout() {
+				var layout = cy.layout(layoutOptions);
+				if (layout && layout.run) {
+					layout.run();
+				}
+			}
+			$('#relayout').on('click', function () {
+				relayout();
+			});
+			$('#fit').on('click', function () {
+				cy.fit(cy.nodes(), 50);
+			});
+			
+			var lastsearchresult = [];
+			var lastshownelement = -1;
+			function centerToSearch() {
+				var target = lastsearchresult[lastshownelement];
+				cy.$('node:selected').unselect();
+				target.select();
+				cy.animate({ center: { eles: target } }, { duration: 0 });
+			}
+
+			$('#search').on('input', function (e) {
+				var query = e.target.value;
+				lastsearchresult = cy.nodes('[NODE_TEXT @*= "' + query + '"]');
+				var hasresults = lastsearchresult.size() != 0;
+				if (hasresults) {
+					lastshownelement = 0;
+					centerToSearch();
+					e.target.classList.remove('no-results');
+				} else {
+					lastshownelement = -1;
+					cy.$('node:selected').unselect();
+					e.target.classList.add('no-results');  
+				}
+				
+				if (query === "" || !hasresults) {
+					$('#next').prop('disabled', true);
+					$('#prev').prop('disabled', true);
+				} else {
+					$('#next').prop('disabled', false);
+					$('#prev').prop('disabled', false);
+				}
+			});
+			$('#next').on('click', function (e) {
+				if (lastshownelement != -1) {
+					lastshownelement = (lastshownelement + 1) % lastsearchresult.size();
+					centerToSearch();
+				}
+			});
+			$('#prev').on('click', function (e) {
+				if (lastshownelement != -1) {
+					lastshownelement = ((lastshownelement - 1) + lastsearchresult.size()) % lastsearchresult.size();
+					centerToSearch();
+				}
+			});
+			
+			cy.on('select', 'node', function(event) {
+		    	var id = event.target.id();
+				$('[id^=header-]').addClass('header-hidden');
+				$('#header-' + id).removeClass('header-hidden');
+			});
+			</script>
+	</body>
+</html>

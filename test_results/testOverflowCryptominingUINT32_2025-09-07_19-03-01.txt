@@ -1,0 +1,91 @@
+========================================
+Running: testOverflowCryptominingUINT32
+Started at: Sun Sep  7 19:03:18 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testOverflowCryptominingUINT32 STANDARD_OUT
+    === STARTING OVERFLOW ANALYSIS: CRYPTOCURRENCY MINING UINT32 ===
+    Input file: inputs/cryptocurrency-mining.imp
+    Target type: UINT32 (range: 0 to 4294967295)
+    Domain: Intervals
+    Expected: Hash rate calculation overflow, reward accumulation overflow
+    --- Starting overflow analysis setup ---
+    Reading program from: inputs/cryptocurrency-mining.imp
+    2025-09-07 19:03:19,076  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/cryptocurrency-mining.imp 
+    Program parsed successfully. CFGs found: 1
+    Output directory: outputs/overflow/crypto-overflow-uint32
+    Target numerical type: uint32 (range: 0.0 to 4.294967295E9)
+    Abstract domain: ValueEnvironment
+    Configuration complete. Starting LiSA analysis...
+    2025-09-07 19:03:19,124  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (1):
+        OverflowChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/overflow/crypto-overflow-uint32
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:19,137  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:19,137  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:19,139  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 894542ns] 
+    2025-09-07 19:03:19,139  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:19,140  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:19,141  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:19,141  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:19,142  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:19,175  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 34ms 48000ns] 
+    2025-09-07 19:03:19,176  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 36ms 82000ns] 
+    2025-09-07 19:03:19,176  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:19,176  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:19,201  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 25ms 70333ns] 
+    2025-09-07 19:03:19,211  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:19,211  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:19,215  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 3ms 937084ns] 
+    2025-09-07 19:03:19,215  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 78ms 455459ns] 
+    2025-09-07 19:03:19,223  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 89ms (started: 2025-09-07T19:03:19.127+02:00, ended: 2025-09-07T19:03:19.216+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 27
+    Expressions: 78
+    Generated Warnings: 7
+    Generated Files: 4 
+    2025-09-07 19:03:19,224  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:19,271  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Overflow analysis setup finished ---
+    Analysis completed. Check outputs/overflow/crypto-overflow-uint32/ for detailed results
+    === OVERFLOW ANALYSIS CRYPTOCURRENCY UINT32 FINISHED ===
+
+
+BUILD SUCCESSFUL in 691ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:19 CEST 2025
+Exit code: 0
+========================================

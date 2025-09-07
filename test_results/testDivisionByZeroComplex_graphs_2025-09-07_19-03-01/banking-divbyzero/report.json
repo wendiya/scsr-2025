@@ -1,0 +1,40 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/banking-simulation.imp':36:27] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Definite division by zero detected in expression: /(100, zero_divisor) (divisor is definitely zero)"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_BankingSimulation.calculate_fee(BankingSimulation__this,_untyped_amount).html", "untyped_BankingSimulation.main(BankingSimulation__this).html", "untyped_BankingSimulation.validate_transfer(BankingSimulation__this,_untyped_amount).html" ],
+  "info" : {
+    "cfgs" : "3",
+    "duration" : "88ms",
+    "end" : "2025-09-07T18:42:25.284+02:00",
+    "expressions" : "94",
+    "files" : "6",
+    "globals" : "0",
+    "members" : "3",
+    "programs" : "1",
+    "start" : "2025-09-07T18:42:25.196+02:00",
+    "statements" : "35",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "1"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "DivisionByZeroChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/divbyzero/banking-divbyzero"
+  }
+}

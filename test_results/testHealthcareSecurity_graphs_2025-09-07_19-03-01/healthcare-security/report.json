@@ -1,0 +1,188 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/healthcare_security.imp':107:31] on 'untyped HealthcareSystem::processVitalSignsSecure(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':108:31] on 'untyped HealthcareSystem::processVitalSignsSecure(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':109:45] on 'untyped HealthcareSystem::processVitalSignsSecure(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':116:26] on 'untyped HealthcareSystem::processLabResults(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':116:26] on 'untyped HealthcareSystem::processLabResults(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':117:40] on 'untyped HealthcareSystem::processLabResults(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'message' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':117:40] on 'untyped HealthcareSystem::processLabResults(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':118:40] on 'untyped HealthcareSystem::processLabResults(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'data' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':118:40] on 'untyped HealthcareSystem::processLabResults(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':129:33] on 'untyped HealthcareSystem::submitInsuranceClaim(HealthcareSystem* this, untyped isEmergency)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':129:33] on 'untyped HealthcareSystem::submitInsuranceClaim(HealthcareSystem* this, untyped isEmergency)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':130:33] on 'untyped HealthcareSystem::submitInsuranceClaim(HealthcareSystem* this, untyped isEmergency)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':130:33] on 'untyped HealthcareSystem::submitInsuranceClaim(HealthcareSystem* this, untyped isEmergency)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':131:46] on 'untyped HealthcareSystem::submitInsuranceClaim(HealthcareSystem* this, untyped isEmergency)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sendInsuranceClaim"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':131:46] on 'untyped HealthcareSystem::submitInsuranceClaim(HealthcareSystem* this, untyped isEmergency)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'data' of sendInsuranceClaim"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':138:27] on 'untyped HealthcareSystem::accessMedicalRecord(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':138:27] on 'untyped HealthcareSystem::accessMedicalRecord(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':139:26] on 'untyped HealthcareSystem::accessMedicalRecord(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':139:26] on 'untyped HealthcareSystem::accessMedicalRecord(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':149:30] on 'untyped HealthcareSystem::generateResearchData(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':150:36] on 'untyped HealthcareSystem::generateResearchData(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':150:36] on 'untyped HealthcareSystem::generateResearchData(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':152:30] on 'untyped HealthcareSystem::generateResearchData(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':153:36] on 'untyped HealthcareSystem::generateResearchData(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':153:36] on 'untyped HealthcareSystem::generateResearchData(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':161:27] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':161:27] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':162:25] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':162:25] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':163:28] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':163:28] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':165:39] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'message' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':165:39] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':166:40] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'message' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':166:40] on 'untyped HealthcareSystem::managePrescription(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':176:33] on 'untyped HealthcareSystem::batchUpdateRecords(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':176:33] on 'untyped HealthcareSystem::batchUpdateRecords(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':177:33] on 'untyped HealthcareSystem::batchUpdateRecords(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':177:33] on 'untyped HealthcareSystem::batchUpdateRecords(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':178:47] on 'untyped HealthcareSystem::batchUpdateRecords(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':178:47] on 'untyped HealthcareSystem::batchUpdateRecords(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'data' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':190:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':191:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':192:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':193:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':193:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':195:38] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':196:38] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':197:38] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'data' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':197:38] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':199:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':200:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':201:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':201:24] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':203:37] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sendInsuranceClaim"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':204:37] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'data' of sendInsuranceClaim"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':204:37] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sendInsuranceClaim"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':205:36] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':206:36] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'message' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':206:36] on 'untyped HealthcareSystem::comprehensivePatientUpdate(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of alertMedicalStaff"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':71:30] on 'untyped HealthcareSystem::registerPatient(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':71:30] on 'untyped HealthcareSystem::registerPatient(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':72:29] on 'untyped HealthcareSystem::registerPatient(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':72:29] on 'untyped HealthcareSystem::registerPatient(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':73:42] on 'untyped HealthcareSystem::registerPatient(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'data' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':73:42] on 'untyped HealthcareSystem::registerPatient(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':86:27] on 'untyped HealthcareSystem::registerPatientSecure(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':87:33] on 'untyped HealthcareSystem::registerPatientSecure(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':88:45] on 'untyped HealthcareSystem::registerPatientSecure(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':95:28] on 'untyped HealthcareSystem::processVitalSigns(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':95:28] on 'untyped HealthcareSystem::processVitalSigns(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':96:32] on 'untyped HealthcareSystem::processVitalSigns(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'logEntry' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':96:32] on 'untyped HealthcareSystem::processVitalSigns(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':97:42] on 'untyped HealthcareSystem::processVitalSigns(HealthcareSystem* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'data' of updateMedicalRecord"
+  }, {
+    "message" : "['inputs/healthcare_security.imp':97:42] on 'untyped HealthcareSystem::processVitalSigns(HealthcareSystem* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of updateMedicalRecord"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_HealthcareSystem.accessMedicalRecord(HealthcareSystem__this).html", "untyped_HealthcareSystem.alertMedicalStaff(HealthcareSystem__this,_untyped_message).html", "untyped_HealthcareSystem.alertMedicalStaff(HealthcareSystem__this,_untyped_message)_1335890431.html", "untyped_HealthcareSystem.alertMedicalStaff(HealthcareSystem__this,_untyped_message)_1335890462.html", "untyped_HealthcareSystem.alertMedicalStaff(HealthcareSystem__this,_untyped_message)_1335891547.html", "untyped_HealthcareSystem.alertMedicalStaff(HealthcareSystem__this,_untyped_message)_1335892074.html", "untyped_HealthcareSystem.alertMedicalStaff(HealthcareSystem__this,_untyped_message)_1335893066.html", "untyped_HealthcareSystem.anonymizePatient(HealthcareSystem__this,_untyped_data).html", "untyped_HealthcareSystem.anonymizePatient(HealthcareSystem__this,_untyped_data)_1335910705.html", "untyped_HealthcareSystem.batchUpdateRecords(HealthcareSystem__this).html", "untyped_HealthcareSystem.comprehensivePatientUpdate(HealthcareSystem__this).html", "untyped_HealthcareSystem.encryptPHI(HealthcareSystem__this,_untyped_data).html", "untyped_HealthcareSystem.encryptPHI(HealthcareSystem__this,_untyped_data)_1335894678.html", "untyped_HealthcareSystem.encryptPHI(HealthcareSystem__this,_untyped_data)_1335902955.html", "untyped_HealthcareSystem.generateResearchData(HealthcareSystem__this).html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this).html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this)_1335893345.html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this)_1335893903.html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this)_1335894213.html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this)_1335894244.html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this)_1335895546.html", "untyped_HealthcareSystem.getExternalLab(HealthcareSystem__this)_1335895670.html", "untyped_HealthcareSystem.getMedicalDevice(HealthcareSystem__this).html", "untyped_HealthcareSystem.getMedicalDevice(HealthcareSystem__this)_1335895701.html", "untyped_HealthcareSystem.getMedicalDevice(HealthcareSystem__this)_1335896538.html", "untyped_HealthcareSystem.getMedicalDevice(HealthcareSystem__this)_1335896817.html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this).html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this)_1335895174.html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this)_1335895794.html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this)_1335895949.html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this)_1335896104.html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this)_1335896259.html", "untyped_HealthcareSystem.getPatientInput(HealthcareSystem__this)_1335901994.html", "untyped_HealthcareSystem.managePrescription(HealthcareSystem__this).html", "untyped_HealthcareSystem.processLabResults(HealthcareSystem__this).html", "untyped_HealthcareSystem.processVitalSigns(HealthcareSystem__this).html", "untyped_HealthcareSystem.processVitalSignsSecure(HealthcareSystem__this).html", "untyped_HealthcareSystem.registerPatient(HealthcareSystem__this).html", "untyped_HealthcareSystem.registerPatientSecure(HealthcareSystem__this).html", "untyped_HealthcareSystem.sanitizer1(HealthcareSystem__this,_untyped_data).html", "untyped_HealthcareSystem.sanitizer1(HealthcareSystem__this,_untyped_data)_1335898243.html", "untyped_HealthcareSystem.sanitizer1(HealthcareSystem__this,_untyped_data)_1335902676.html", "untyped_HealthcareSystem.sanitizer1(HealthcareSystem__this,_untyped_data)_1335905280.html", "untyped_HealthcareSystem.sanitizer1(HealthcareSystem__this,_untyped_data)_1335906551.html", "untyped_HealthcareSystem.sanitizer2(HealthcareSystem__this,_untyped_patientData).html", "untyped_HealthcareSystem.sanitizer2(HealthcareSystem__this,_untyped_patientData)_1335894647.html", "untyped_HealthcareSystem.sanitizer2(HealthcareSystem__this,_untyped_patientData)_1335901002.html", "untyped_HealthcareSystem.sendInsuranceClaim(HealthcareSystem__this,_untyped_data).html", "untyped_HealthcareSystem.sendInsuranceClaim(HealthcareSystem__this,_untyped_data)_1335891330.html", "untyped_HealthcareSystem.sendInsuranceClaim(HealthcareSystem__this,_untyped_data)_1335891361.html", "untyped_HealthcareSystem.sendInsuranceClaim(HealthcareSystem__this,_untyped_data)_1335897747.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query).html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335878062.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335878093.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335878434.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335878465.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335878496.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335878527.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335879333.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335879705.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335880418.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335880511.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335881441.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335882588.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335882929.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335885192.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335886649.html", "untyped_HealthcareSystem.sink1(HealthcareSystem__this,_untyped_query)_1335888726.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry).html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335878713.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335878744.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335878775.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335879581.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335882619.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335883022.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335883208.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335883890.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335885223.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335886680.html", "untyped_HealthcareSystem.sinks(HealthcareSystem__this,_untyped_logEntry)_1335888819.html", "untyped_HealthcareSystem.source1(HealthcareSystem__this).html", "untyped_HealthcareSystem.source1(HealthcareSystem__this)_1335887331.html", "untyped_HealthcareSystem.source1(HealthcareSystem__this)_1335889036.html", "untyped_HealthcareSystem.source1(HealthcareSystem__this)_1335889346.html", "untyped_HealthcareSystem.source1(HealthcareSystem__this)_1335891392.html", "untyped_HealthcareSystem.source1(HealthcareSystem__this)_1335895515.html", "untyped_HealthcareSystem.source2(HealthcareSystem__this).html", "untyped_HealthcareSystem.source2(HealthcareSystem__this)_1335889966.html", "untyped_HealthcareSystem.source2(HealthcareSystem__this)_1335891764.html", "untyped_HealthcareSystem.source2(HealthcareSystem__this)_1335892043.html", "untyped_HealthcareSystem.submitInsuranceClaim(HealthcareSystem__this,_untyped_isEmergency).html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data).html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335891578.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335892043.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335892074.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335892105.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335892849.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335895453.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335896104.html", "untyped_HealthcareSystem.updateMedicalRecord(HealthcareSystem__this,_untyped_data)_1335900165.html", "untyped_HealthcareSystem.validateMedicalID(HealthcareSystem__this,_untyped_id).html", "untyped_HealthcareSystem.validateMedicalID(HealthcareSystem__this,_untyped_id)_1335909992.html", "untyped_HealthcareSystem.validateMedicalID(HealthcareSystem__this,_untyped_id)_1335910674.html" ],
+  "info" : {
+    "cfgs" : "26",
+    "duration" : "150ms",
+    "end" : "2025-09-07T19:04:09.336+02:00",
+    "expressions" : "246",
+    "files" : "106",
+    "globals" : "0",
+    "members" : "26",
+    "programs" : "1",
+    "start" : "2025-09-07T19:04:09.186+02:00",
+    "statements" : "115",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "75"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "TaintThreeLevelsChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/taint/healthcare-security"
+  }
+}

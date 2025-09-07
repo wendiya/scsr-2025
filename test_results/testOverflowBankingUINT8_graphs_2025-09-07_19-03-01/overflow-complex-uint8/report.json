@@ -1,0 +1,46 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/overflow-complex.imp':16:12] on 'untyped OverflowComplex::main(OverflowComplex* this)': [EXPRESSION] Potential uint8 overflow detected: value 300 exceeds maximum 255.0 (wraps to 44.0) for variable 'y'"
+  }, {
+    "message" : "['inputs/overflow-complex.imp':20:8] on 'untyped OverflowComplex::main(OverflowComplex* this)': [EXPRESSION] Potential uint8 underflow detected: value -10 below minimum 0.0 (wraps to 246.0) for variable 'negative'"
+  }, {
+    "message" : "['inputs/overflow-complex.imp':24:12] on 'untyped OverflowComplex::main(OverflowComplex* this)': [EXPRESSION] Potential uint8 overflow detected: value 320 exceeds maximum 255.0 (wraps to 64.0) for variable 'product'"
+  }, {
+    "message" : "['inputs/overflow-complex.imp':8:8] on 'untyped OverflowComplex::main(OverflowComplex* this)': [EXPRESSION] Potential uint8 overflow detected: value 300 exceeds maximum 255.0 (wraps to 44.0) for variable 'result'"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_OverflowComplex.main(OverflowComplex__this).html" ],
+  "info" : {
+    "cfgs" : "1",
+    "duration" : "75ms",
+    "end" : "2025-09-07T19:03:02.765+02:00",
+    "expressions" : "42",
+    "files" : "4",
+    "globals" : "0",
+    "members" : "1",
+    "programs" : "1",
+    "start" : "2025-09-07T19:03:02.690+02:00",
+    "statements" : "16",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "4"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "OverflowChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/overflow/overflow-complex-uint8"
+  }
+}

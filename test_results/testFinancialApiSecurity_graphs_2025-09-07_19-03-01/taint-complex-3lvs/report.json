@@ -1,0 +1,38 @@
+{
+  "warnings" : [ ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_TaintComplex.main(TaintComplex__this).html", "untyped_TaintComplex.propagate_taint(TaintComplex__this,_untyped_data).html", "untyped_TaintComplex.sanitizer1(TaintComplex__this,_untyped_data).html", "untyped_TaintComplex.sanitizer2(TaintComplex__this,_untyped_data).html", "untyped_TaintComplex.sink1(TaintComplex__this,_untyped_data).html", "untyped_TaintComplex.sinks(TaintComplex__this,_untyped_data1).html", "untyped_TaintComplex.source1(TaintComplex__this).html", "untyped_TaintComplex.source2(TaintComplex__this).html" ],
+  "info" : {
+    "cfgs" : "8",
+    "duration" : "74ms",
+    "end" : "2025-09-07T19:03:42.176+02:00",
+    "expressions" : "89",
+    "files" : "11",
+    "globals" : "0",
+    "members" : "8",
+    "programs" : "1",
+    "start" : "2025-09-07T19:03:42.102+02:00",
+    "statements" : "42",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "0"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "TaintThreeLevelsChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/taint/taint-complex-3lvs"
+  }
+}

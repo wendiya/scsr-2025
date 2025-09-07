@@ -1,0 +1,98 @@
+========================================
+Running: testCombinedAnalysisCryptomining
+Started at: Sun Sep  7 19:03:58 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testCombinedAnalysisCryptomining STANDARD_OUT
+    === STARTING COMBINED ANALYSIS: CRYPTOCURRENCY MINING ===
+    Input file: inputs/cryptocurrency-mining.imp
+    Target type: UINT32
+    Checkers: Overflow + Division by Zero + Taint Analysis
+    Expected: Hash calculation overflow, profitability division by zero
+    --- Starting combined analysis setup ---
+    Reading program from: inputs/cryptocurrency-mining.imp
+    2025-09-07 19:03:58,939  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/cryptocurrency-mining.imp 
+    Program parsed successfully. CFGs found: 1
+    --- Loading taint annotations ---
+    Annotation summary: 0 sources, 0 sanitizers, 0 sink parameters
+    --- Taint annotations loading completed ---
+    Taint annotations loaded for combined analysis
+    Output directory: outputs/combined/crypto-combined
+    Target numerical type: uint32
+    Abstract domain: Intervals
+    Checkers: OverflowChecker + DivisionByZeroChecker + TaintChecker
+    All checkers configured. Starting LiSA analysis...
+    2025-09-07 19:03:58,991  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (3):
+        TaintChecker
+        DivisionByZeroChecker
+        OverflowChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/combined/crypto-combined
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:59,005  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:59,006  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:59,008  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 2ms 6250ns] 
+    2025-09-07 19:03:59,008  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:59,008  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:59,010  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:59,010  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:59,011  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:59,046  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 35ms 662292ns] 
+    2025-09-07 19:03:59,047  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 38ms 315708ns] 
+    2025-09-07 19:03:59,047  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:59,047  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:59,074  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 27ms 439333ns] 
+    2025-09-07 19:03:59,084  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:59,084  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:59,089  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 4ms 428584ns] 
+    2025-09-07 19:03:59,089  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 83ms 835708ns] 
+    2025-09-07 19:03:59,098  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 96ms (started: 2025-09-07T19:03:58.994+02:00, ended: 2025-09-07T19:03:59.090+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 27
+    Expressions: 78
+    Generated Warnings: 7
+    Generated Files: 4 
+    2025-09-07 19:03:59,098  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:59,153  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    Combined LiSA analysis completed successfully
+    --- Combined analysis setup finished ---
+    Analysis completed. Check outputs/combined/crypto-combined/ for detailed results
+    === COMBINED ANALYSIS CRYPTOCURRENCY FINISHED ===
+
+
+BUILD SUCCESSFUL in 755ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:59 CEST 2025
+Exit code: 0
+========================================

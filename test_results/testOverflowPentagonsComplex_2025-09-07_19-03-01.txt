@@ -1,0 +1,90 @@
+========================================
+Running: testOverflowPentagonsComplex
+Started at: Sun Sep  7 19:03:21 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testOverflowPentagonsComplex STANDARD_OUT
+    === STARTING OVERFLOW ANALYSIS: PENTAGONS DOMAIN COMPLEX ===
+    Input file: inputs/overflow-complex.imp
+    Target type: UINT8 (range: 0-255)
+    Domain: Pentagons (relational domain with upper bounds)
+    Expected: More precise analysis with relational information
+    --- Starting overflow analysis setup ---
+    Reading program from: inputs/overflow-complex.imp
+    2025-09-07 19:03:22,379  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/overflow-complex.imp 
+    Program parsed successfully. CFGs found: 1
+    Output directory: outputs/overflow/overflow-pentagons-complex
+    Target numerical type: uint8 (range: 0.0 to 255.0)
+    Abstract domain: Pentagons (relational domain)
+    Configuration complete. Starting LiSA analysis...
+    Note: Custom overflow checker omitted due to type incompatibility with Pentagons domain
+    2025-09-07 19:03:22,427  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (0)
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/overflow/overflow-pentagons-complex
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:22,439  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:22,439  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:22,441  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 183917ns] 
+    2025-09-07 19:03:22,441  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:22,441  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:22,442  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:22,443  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:22,444  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:22,474  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 31ms 51500ns] 
+    2025-09-07 19:03:22,474  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 33ms 110542ns] 
+    2025-09-07 19:03:22,474  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:22,475  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:22,493  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 18ms 524750ns] 
+    2025-09-07 19:03:22,504  WARN it.unive.lisa.LiSARunner - Skipping semantic checks execution since none have been provided 
+    2025-09-07 19:03:22,504  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 65ms 26041ns] 
+    2025-09-07 19:03:22,515  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 76ms (started: 2025-09-07T19:03:22.429+02:00, ended: 2025-09-07T19:03:22.505+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 16
+    Expressions: 42
+    Generated Warnings: 0
+    Generated Files: 4 
+    2025-09-07 19:03:22,515  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:22,562  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Overflow analysis setup finished ---
+    Analysis completed. Check outputs/overflow/overflow-pentagons-complex/ for detailed results
+    Compare with intervals domain results for precision differences
+    === OVERFLOW ANALYSIS PENTAGONS COMPLEX FINISHED ===
+
+
+BUILD SUCCESSFUL in 710ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:23 CEST 2025
+Exit code: 0
+========================================

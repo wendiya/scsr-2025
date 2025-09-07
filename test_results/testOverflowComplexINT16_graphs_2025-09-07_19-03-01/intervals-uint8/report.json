@@ -1,0 +1,102 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/overflow.imp':11:10] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -3 below minimum 0.0 (wraps to 253.0) for variable 'k'"
+  }, {
+    "message" : "['inputs/overflow.imp':11:6] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -10 below minimum 0.0 (wraps to 246.0) for variable 'c'"
+  }, {
+    "message" : "['inputs/overflow.imp':12:14] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -3 below minimum 0.0 (wraps to 253.0) for variable 'k'"
+  }, {
+    "message" : "['inputs/overflow.imp':12:6] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -21 below minimum 0.0 (wraps to 235.0) for variable 'd'"
+  }, {
+    "message" : "['inputs/overflow.imp':13:14] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -1 below minimum 0.0 (wraps to 255.0) for variable 'l'"
+  }, {
+    "message" : "['inputs/overflow.imp':13:6] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -2 below minimum 0.0 (wraps to 254.0) for variable 'e'"
+  }, {
+    "message" : "['inputs/overflow.imp':14:12] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -2 below minimum 0.0 (wraps to 254.0) for variable 'f'"
+  }, {
+    "message" : "['inputs/overflow.imp':19:6] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':20:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential uint8 overflow detected: value 32767 exceeds maximum 255.0 (wraps to 255.0) for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':22:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential uint8 underflow detected: value -32768 below minimum 0.0 (wraps to 0.0) for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential uint8 overflow detected: value 32768 exceeds maximum 255.0 (wraps to 0.0) for variable 'r'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential uint8 underflow detected: value -32767 below minimum 0.0 (wraps to 1.0) for variable 'r'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:12] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Variable 'r' has interval [-32767, 32768] that may exceed uint8 bounds [0.0, 255.0]"
+  }, {
+    "message" : "['inputs/overflow.imp':24:16] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential uint8 overflow detected: value 32767 exceeds maximum 255.0 (wraps to 255.0) for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:16] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Potential uint8 underflow detected: value -32768 below minimum 0.0 (wraps to 0.0) for variable 'x'"
+  }, {
+    "message" : "['inputs/overflow.imp':24:16] on 'untyped overflow::f2(overflow* this, untyped b)': [EXPRESSION] Variable 'x' has interval [-32768, 32767] that may exceed uint8 bounds [0.0, 255.0]"
+  }, {
+    "message" : "['inputs/overflow.imp':28:14] on 'untyped overflow::f3(overflow* this, untyped i)': [EXPRESSION] Variable 'i' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':32:10] on 'untyped overflow::f4(overflow* this, untyped a, untyped b)': [EXPRESSION] Variable 'a' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':32:14] on 'untyped overflow::f4(overflow* this, untyped a, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':32:6] on 'untyped overflow::f4(overflow* this, untyped a, untyped b)': [EXPRESSION] Variable 'x' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':38:9] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':39:7] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':40:7] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':43:2] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'c' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':43:6] on 'untyped overflow::f5(overflow* this, untyped b)': [EXPRESSION] Variable 'c' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':49:5] on 'untyped overflow::f6(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':50:10] on 'untyped overflow::f6(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':51:20] on 'untyped overflow::f6(overflow* this, untyped b)': [EXPRESSION] Variable 'b' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/overflow.imp':7:6] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -3 below minimum 0.0 (wraps to 253.0) for variable 'k'"
+  }, {
+    "message" : "['inputs/overflow.imp':8:6] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -1 below minimum 0.0 (wraps to 255.0) for variable 'l'"
+  }, {
+    "message" : "['inputs/overflow.imp':9:14] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -1 below minimum 0.0 (wraps to 255.0) for variable 'l'"
+  }, {
+    "message" : "['inputs/overflow.imp':9:6] on 'untyped overflow::f1(overflow* this)': [EXPRESSION] Potential uint8 underflow detected: value -1 below minimum 0.0 (wraps to 255.0) for variable 'a'"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_overflow.f1(overflow__this).html", "untyped_overflow.f2(overflow__this,_untyped_b).html", "untyped_overflow.f3(overflow__this,_untyped_i).html", "untyped_overflow.f4(overflow__this,_untyped_a,_untyped_b).html", "untyped_overflow.f5(overflow__this,_untyped_b).html", "untyped_overflow.f6(overflow__this,_untyped_b).html" ],
+  "info" : {
+    "cfgs" : "6",
+    "duration" : "8ms",
+    "end" : "2025-09-07T17:18:37.282+02:00",
+    "expressions" : "75",
+    "files" : "9",
+    "globals" : "0",
+    "members" : "6",
+    "programs" : "1",
+    "start" : "2025-09-07T17:18:37.274+02:00",
+    "statements" : "32",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "32"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "OverflowChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/overflow/intervals-uint8"
+  }
+}

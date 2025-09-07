@@ -1,0 +1,1442 @@
+<html>
+	<head>
+		<title>untyped TaintComplex::main(TaintComplex* this)</title>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+		
+		<script src="js/cytoscape-3.21.1.min.js"></script>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script src="js/cytoscape-graphml-1.0.6-hier.js"></script>
+		
+		<style>
+		body {
+			font-family: helvetica neue, helvetica, liberation sans, arial,
+				sans-serif;
+			font-size: 14px;
+			background-color: white;
+		}
+		
+		html, body, #full {
+			height: 100%;
+		}
+		
+		#full {
+			display: flex;
+			flex-direction: row;
+		}
+		
+		#cy {
+			flex-grow: 0.5;
+			z-index: 10;
+			max-width: 70%;
+		}
+		
+		#header {
+			position: fixed;
+			z-index: 11;
+			overflow-x: hidden;
+		}
+		
+		#header div {
+			background-color: #e2e2e2;
+			padding: 20px 15px;
+			margin-bottom: 10px;
+		}
+		
+		#header div b {
+			padding: 6px 0;
+			color: #333333;
+			display: block;
+			cursor: pointer;
+		}
+		
+		#header div span {
+			padding: 6px 0;
+			display: block;
+		}
+		
+		#header div span label b {
+			padding: 0;
+			display: inline;
+		}
+		
+		#header div span input {
+			margin: 0;
+		}
+		#descriptions {
+			flex-grow: 0.5;
+			z-index: 11;
+			overflow: auto;
+			font-size: 18px;
+			border-left: 2px solid #e2e2e2;
+    		padding-left: 20px;
+		}
+		.description-header {
+    		font-weight: bold;
+		}
+		#descriptions ul {
+		    padding-left: inherit;
+		    margin: 5px 0;
+		}
+		.description-nest {
+			padding-left: 15px;
+		}
+		.header-hidden {
+			display: none;
+		}
+		.description-title-wrapper {
+    		margin-top: 0.83em;
+    		margin-bottom: 0.83em;
+		}
+		.description-title {
+		    font-size: 1.5em;
+		    font-weight: bold;
+		}
+		.description-title-text {
+		    font-size: 1.5em;
+		    font-family: monospace;
+		}
+		#header-none {
+    		margin-top: 0.83em;
+    		margin-bottom: 0.83em;
+		}
+		.no-results {
+   			border: solid 2px #FF0000;  
+   			background-color: #FF000040;
+		}
+		</style>
+	</head>
+
+	<body>
+		<h1>untyped TaintComplex::main(TaintComplex* this)</h1>
+		<h3></h3>
+		<hr />
+		<div id="full">
+			<div id="header">
+				<div>
+					<b>Node border: <font color="darkgray">gray</font>, single</b> 
+					<b>Entrypoint border: black, single</b> 
+					<b>Exitpoint border: black, double</b> 
+					<b>Sequential edge: black, solid</b> 
+					<b>False edge: <font color="red">red</font>, solid</b> 
+					<b>True edge: <font color="blue">blue</font>, solid</b>
+				</div>
+				<div>
+					<input id="search" type="text" placeholder="Search node.."/>
+					<input id="next" type="button" value="Next" disabled/>
+					<input id="prev" type="button" value="Previous" disabled/>
+					<b id="relayout">Run layout</b> 
+					<b id="fit">Fit to viewport</b>
+				</div>
+			</div>
+			<div id="cy"></div>
+			<div id="descriptions">
+				<div id="header-none">
+				No node selected. Select a node to show its results.
+				</div>
+				<div id="header-node0" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">tainted1 = 42</span></div>
+					<span class="description-header">expressions: </span>[tainted1]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">tainted1: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node3" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">tainted2 = 100</span></div>
+					<span class="description-header">expressions: </span>[tainted2]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node6" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">clean_data = 0</span></div>
+					<span class="description-header">expressions: </span>[clean_data]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node9" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink1 = tainted1</span></div>
+					<span class="description-header">expressions: </span>[_sink1]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node12" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">indirect_taint = tainted1</span></div>
+					<span class="description-header">expressions: </span>[indirect_taint]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node15" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink2 = indirect_taint</span></div>
+					<span class="description-header">expressions: </span>[_sink2]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node18" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">temp_clean = tainted1</span></div>
+					<span class="description-header">expressions: </span>[temp_clean]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node21" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink3 = temp_clean</span></div>
+					<span class="description-header">expressions: </span>[_sink3]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node24" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">mixed_result = +(tainted1, clean_data)</span></div>
+					<span class="description-header">expressions: </span>[mixed_result]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node29" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink4 = mixed_result</span></div>
+					<span class="description-header">expressions: </span>[_sink4]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node32" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">conditional_data = clean_data</span></div>
+					<span class="description-header">expressions: </span>[conditional_data]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node35" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">some_condition = 1</span></div>
+					<span class="description-header">expressions: </span>[some_condition]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node38" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">==(some_condition, 1)</span></div>
+					<span class="description-header">expressions: </span>[some_condition == 1]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node41" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">conditional_data = tainted2</span></div>
+					<span class="description-header">expressions: </span>[conditional_data]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node44" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink5 = conditional_data</span></div>
+					<span class="description-header">expressions: </span>[_sink5]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node47" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">propagated = +(tainted1, 1)</span></div>
+					<span class="description-header">expressions: </span>[propagated]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node52" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink6 = propagated</span></div>
+					<span class="description-header">expressions: </span>[_sink6]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node55" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">chain1 = tainted1</span></div>
+					<span class="description-header">expressions: </span>[chain1]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node58" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">chain2 = chain1</span></div>
+					<span class="description-header">expressions: </span>[chain2]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node61" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">chain3 = chain2</span></div>
+					<span class="description-header">expressions: </span>[chain3]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node64" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink7 = chain3</span></div>
+					<span class="description-header">expressions: </span>[_sink7]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node67" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">loop_data = tainted2</span></div>
+					<span class="description-header">expressions: </span>[loop_data]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node70" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">counter = 3</span></div>
+					<span class="description-header">expressions: </span>[counter]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">counter: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">counter: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node73" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">>(counter, 0)</span></div>
+					<span class="description-header">expressions: </span>[counter > 0]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">counter: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">counter: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node76" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">loop_data = +(loop_data, 1)</span></div>
+					<span class="description-header">expressions: </span>[loop_data]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">counter: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">counter: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node81" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">counter = -(counter, 1)</span></div>
+					<span class="description-header">expressions: </span>[counter]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">counter: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">counter: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node86" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">_sink8 = loop_data</span></div>
+					<span class="description-header">expressions: </span>[_sink8]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">_sink8: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">counter: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">_sink8: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">counter: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+				<div id="header-node89" class="header-hidden">
+					<div class="description-title-wrapper"><span class="description-title">Results for </span><span class="description-title-text">ret</span></div>
+					<span class="description-header">expressions: </span>[skip]<br/>
+					<span class="description-header">state: </span><br/>
+					<div class="description-nest">
+						<span class="description-header">heap: </span>monolith<br/>
+						<span class="description-header">type: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>[int32]<br/>
+							<span class="description-header">_sink2: </span>[int32]<br/>
+							<span class="description-header">_sink3: </span>[int32]<br/>
+							<span class="description-header">_sink4: </span>[int32]<br/>
+							<span class="description-header">_sink5: </span>[int32]<br/>
+							<span class="description-header">_sink6: </span>[int32]<br/>
+							<span class="description-header">_sink7: </span>[int32]<br/>
+							<span class="description-header">_sink8: </span>[int32]<br/>
+							<span class="description-header">chain1: </span>[int32]<br/>
+							<span class="description-header">chain2: </span>[int32]<br/>
+							<span class="description-header">chain3: </span>[int32]<br/>
+							<span class="description-header">clean_data: </span>[int32]<br/>
+							<span class="description-header">conditional_data: </span>[int32]<br/>
+							<span class="description-header">counter: </span>[int32]<br/>
+							<span class="description-header">indirect_taint: </span>[int32]<br/>
+							<span class="description-header">loop_data: </span>[int32]<br/>
+							<span class="description-header">mixed_result: </span>[int32]<br/>
+							<span class="description-header">propagated: </span>[int32]<br/>
+							<span class="description-header">some_condition: </span>[int32]<br/>
+							<span class="description-header">tainted1: </span>[int32]<br/>
+							<span class="description-header">tainted2: </span>[int32]<br/>
+							<span class="description-header">temp_clean: </span>[int32]<br/>
+							<span class="description-header">this: </span>[TaintComplex*]<br/>
+						</div>
+						<span class="description-header">value: </span><br/>
+						<div class="description-nest">
+							<span class="description-header">_sink1: </span>_<br/>
+							<span class="description-header">_sink2: </span>_<br/>
+							<span class="description-header">_sink3: </span>_<br/>
+							<span class="description-header">_sink4: </span>_<br/>
+							<span class="description-header">_sink5: </span>_<br/>
+							<span class="description-header">_sink6: </span>_<br/>
+							<span class="description-header">_sink7: </span>_<br/>
+							<span class="description-header">_sink8: </span>_<br/>
+							<span class="description-header">chain1: </span>_<br/>
+							<span class="description-header">chain2: </span>_<br/>
+							<span class="description-header">chain3: </span>_<br/>
+							<span class="description-header">clean_data: </span>_<br/>
+							<span class="description-header">conditional_data: </span>_<br/>
+							<span class="description-header">counter: </span>_<br/>
+							<span class="description-header">indirect_taint: </span>_<br/>
+							<span class="description-header">loop_data: </span>_<br/>
+							<span class="description-header">mixed_result: </span>_<br/>
+							<span class="description-header">propagated: </span>_<br/>
+							<span class="description-header">some_condition: </span>_<br/>
+							<span class="description-header">tainted1: </span>_<br/>
+							<span class="description-header">tainted2: </span>_<br/>
+							<span class="description-header">temp_clean: </span>_<br/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>			
+			var api;
+			var layoutOptions;
+			var cy = window.cy = cytoscape({
+				container: $('#cy'),
+				maxZoom: 100,
+				zoomingEnabled: true,
+				userZoomingEnabled: true,
+				style: [
+					{
+						selector: 'node',
+						css: {
+							'background-color': 'white',
+							'color': 'black',
+							'shape': 'rectangle',
+							'border-width': '1px',
+							'border-style': 'solid',
+							'border-color': 'darkgray',
+							'content': 'data(NODE_TEXT)',
+							'font-family': 'monospace',
+							'font-size': '18px',
+							'font-weight': 'bold',
+							'text-wrap': 'wrap',
+						}
+					},
+					{
+						selector: 'node[NODE_IS_ENTRY = "yes"]',
+						css: {
+							'border-width': '3px',
+							'border-style': 'solid',
+							'border-color': 'black',
+						}
+					},	
+					{
+						selector: 'node[NODE_IS_EXIT = "yes"]',
+						css: {
+							'border-width': '5px',
+							'border-style': 'double',
+							'border-color': 'black',
+						}
+					},
+				    {
+					    selector: 'node:selected',
+					    css: {
+							'border-color': 'orange',
+							'border-width': '2px',
+					    }
+					},
+					{
+						selector: 'edge',
+						css: {
+							'curve-style': 'bezier',
+							'width': 4,
+							'line-color': 'black',
+							'target-arrow-shape': 'triangle',
+							'target-arrow-color': 'black',
+							'arrow-scale': '2'
+						}
+					},
+					{
+						selector: 'edge[EDGE_KIND = "TrueEdge"]',
+						css: {
+							'line-color': 'blue',
+							'target-arrow-color': 'blue',
+						}
+					},
+					{
+						selector: 'edge[EDGE_KIND = "FalseEdge"]',
+						css: {
+							'line-color': 'red',
+							'target-arrow-color': 'red',
+						}
+					},			
+				],
+				
+				ready: function () {
+					var data = '<?xml version="1.0" encoding="UTF-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns   http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="NODE_IS_ENTRY" for="node" attr.name="NODE_IS_ENTRY" attr.type="string"/><key id="NODE_IS_EXIT" for="node" attr.name="NODE_IS_EXIT" attr.type="string"/><key id="NODE_TEXT" for="node" attr.name="NODE_TEXT" attr.type="string"/><key id="EDGE_KIND" for="edge" attr.name="EDGE_KIND" attr.type="string"/><graph id="graph" edgedefault="directed"><node id="node0"><data key="NODE_IS_ENTRY">yes</data><data key="NODE_TEXT">tainted1 = 42</data><data key="NODE_IS_EXIT">no</data></node><node id="node3"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">tainted2 = 100</data><data key="NODE_IS_EXIT">no</data></node><node id="node6"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">clean_data = 0</data><data key="NODE_IS_EXIT">no</data></node><node id="node9"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink1 = tainted1</data><data key="NODE_IS_EXIT">no</data></node><node id="node12"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">indirect_taint = tainted1</data><data key="NODE_IS_EXIT">no</data></node><node id="node15"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink2 = indirect_taint</data><data key="NODE_IS_EXIT">no</data></node><node id="node18"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">temp_clean = tainted1</data><data key="NODE_IS_EXIT">no</data></node><node id="node21"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink3 = temp_clean</data><data key="NODE_IS_EXIT">no</data></node><node id="node24"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">mixed_result = +(tainted1, clean_data)</data><data key="NODE_IS_EXIT">no</data></node><node id="node29"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink4 = mixed_result</data><data key="NODE_IS_EXIT">no</data></node><node id="node32"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">conditional_data = clean_data</data><data key="NODE_IS_EXIT">no</data></node><node id="node35"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">some_condition = 1</data><data key="NODE_IS_EXIT">no</data></node><node id="node38"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">==(some_condition, 1)</data><data key="NODE_IS_EXIT">no</data></node><node id="node41"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">conditional_data = tainted2</data><data key="NODE_IS_EXIT">no</data></node><node id="node44"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink5 = conditional_data</data><data key="NODE_IS_EXIT">no</data></node><node id="node47"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">propagated = +(tainted1, 1)</data><data key="NODE_IS_EXIT">no</data></node><node id="node52"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink6 = propagated</data><data key="NODE_IS_EXIT">no</data></node><node id="node55"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">chain1 = tainted1</data><data key="NODE_IS_EXIT">no</data></node><node id="node58"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">chain2 = chain1</data><data key="NODE_IS_EXIT">no</data></node><node id="node61"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">chain3 = chain2</data><data key="NODE_IS_EXIT">no</data></node><node id="node64"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink7 = chain3</data><data key="NODE_IS_EXIT">no</data></node><node id="node67"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">loop_data = tainted2</data><data key="NODE_IS_EXIT">no</data></node><node id="node70"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">counter = 3</data><data key="NODE_IS_EXIT">no</data></node><node id="node73"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">&gt;(counter, 0)</data><data key="NODE_IS_EXIT">no</data></node><node id="node76"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">loop_data = +(loop_data, 1)</data><data key="NODE_IS_EXIT">no</data></node><node id="node81"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">counter = -(counter, 1)</data><data key="NODE_IS_EXIT">no</data></node><node id="node86"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">_sink8 = loop_data</data><data key="NODE_IS_EXIT">no</data></node><node id="node89"><data key="NODE_IS_ENTRY">no</data><data key="NODE_TEXT">ret</data><data key="NODE_IS_EXIT">yes</data></node><edge id="edge-0-3" source="node0" target="node3" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-3-6" source="node3" target="node6" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-6-9" source="node6" target="node9" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-9-12" source="node9" target="node12" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-12-15" source="node12" target="node15" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-15-18" source="node15" target="node18" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-18-21" source="node18" target="node21" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-21-24" source="node21" target="node24" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-24-29" source="node24" target="node29" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-29-32" source="node29" target="node32" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-32-35" source="node32" target="node35" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-35-38" source="node35" target="node38" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-38-41" source="node38" target="node41" directed="true"><data key="EDGE_KIND">TrueEdge</data></edge><edge id="edge-38-44" source="node38" target="node44" directed="true"><data key="EDGE_KIND">FalseEdge</data></edge><edge id="edge-41-44" source="node41" target="node44" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-44-47" source="node44" target="node47" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-47-52" source="node47" target="node52" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-52-55" source="node52" target="node55" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-55-58" source="node55" target="node58" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-58-61" source="node58" target="node61" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-61-64" source="node61" target="node64" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-64-67" source="node64" target="node67" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-67-70" source="node67" target="node70" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-70-73" source="node70" target="node73" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-73-76" source="node73" target="node76" directed="true"><data key="EDGE_KIND">TrueEdge</data></edge><edge id="edge-73-86" source="node73" target="node86" directed="true"><data key="EDGE_KIND">FalseEdge</data></edge><edge id="edge-76-81" source="node76" target="node81" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-81-73" source="node81" target="node73" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge><edge id="edge-86-89" source="node86" target="node89" directed="true"><data key="EDGE_KIND">SequentialEdge</data></edge></graph></graphml>'
+					this.graphml({layoutBy: null});
+					this.graphml(data);
+					
+					layoutOptions = {
+							name: 'breadthfirst',
+							fit: false,
+							directed: true,
+							spacingFactor: 2.5,
+					};
+					var layout = this.layout(layoutOptions);
+					if (layout && layout.run) {
+						layout.run();
+					}
+					this.fit();
+				}
+			});
+			
+			function relayout() {
+				var layout = cy.layout(layoutOptions);
+				if (layout && layout.run) {
+					layout.run();
+				}
+			}
+			$('#relayout').on('click', function () {
+				relayout();
+			});
+			$('#fit').on('click', function () {
+				cy.fit(cy.nodes(), 50);
+			});
+			
+			var lastsearchresult = [];
+			var lastshownelement = -1;
+			function centerToSearch() {
+				var target = lastsearchresult[lastshownelement];
+				cy.$('node:selected').unselect();
+				target.select();
+				cy.animate({ center: { eles: target } }, { duration: 0 });
+			}
+
+			$('#search').on('input', function (e) {
+				var query = e.target.value;
+				lastsearchresult = cy.nodes('[NODE_TEXT @*= "' + query + '"]');
+				var hasresults = lastsearchresult.size() != 0;
+				if (hasresults) {
+					lastshownelement = 0;
+					centerToSearch();
+					e.target.classList.remove('no-results');
+				} else {
+					lastshownelement = -1;
+					cy.$('node:selected').unselect();
+					e.target.classList.add('no-results');  
+				}
+				
+				if (query === "" || !hasresults) {
+					$('#next').prop('disabled', true);
+					$('#prev').prop('disabled', true);
+				} else {
+					$('#next').prop('disabled', false);
+					$('#prev').prop('disabled', false);
+				}
+			});
+			$('#next').on('click', function (e) {
+				if (lastshownelement != -1) {
+					lastshownelement = (lastshownelement + 1) % lastsearchresult.size();
+					centerToSearch();
+				}
+			});
+			$('#prev').on('click', function (e) {
+				if (lastshownelement != -1) {
+					lastshownelement = ((lastshownelement - 1) + lastsearchresult.size()) % lastsearchresult.size();
+					centerToSearch();
+				}
+			});
+			
+			cy.on('select', 'node', function(event) {
+		    	var id = event.target.id();
+				$('[id^=header-]').addClass('header-hidden');
+				$('#header-' + id).removeClass('header-hidden');
+			});
+			</script>
+	</body>
+</html>

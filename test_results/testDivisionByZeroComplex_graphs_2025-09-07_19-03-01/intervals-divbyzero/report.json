@@ -1,0 +1,52 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/divbyzero.imp':11:12] on 'untyped divbyzero::f1(divbyzero* this)': [EXPRESSION] Definite division by zero detected in expression: /(a, b) (divisor is definitely zero)"
+  }, {
+    "message" : "['inputs/divbyzero.imp':25:14] on 'untyped divbyzero::f3(divbyzero* this, untyped i)': [EXPRESSION] Division by unknown value - potential division by zero in expression: /(1, i)"
+  }, {
+    "message" : "['inputs/divbyzero.imp':30:13] on 'untyped divbyzero::f4(divbyzero* this, untyped a)': [EXPRESSION] Division by unknown value - potential division by zero in expression: /(1, a)"
+  }, {
+    "message" : "['inputs/divbyzero.imp':32:12] on 'untyped divbyzero::f4(divbyzero* this, untyped a)': [EXPRESSION] Division by unknown value - potential division by zero in expression: /(1, a)"
+  }, {
+    "message" : "['inputs/divbyzero.imp':38:13] on 'untyped divbyzero::f5(divbyzero* this, untyped a)': [EXPRESSION] Division by unknown value - potential division by zero in expression: /(1, a)"
+  }, {
+    "message" : "['inputs/divbyzero.imp':44:12] on 'untyped divbyzero::f6(divbyzero* this)': [EXPRESSION] Definite division by zero detected in expression: /(1, a) (divisor is definitely zero)"
+  }, {
+    "message" : "['inputs/divbyzero.imp':5:12] on 'untyped divbyzero::f0(divbyzero* this)': [EXPRESSION] Definite division by zero detected in expression: /(1, 0) (divisor is definitely zero)"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_divbyzero.f0(divbyzero__this).html", "untyped_divbyzero.f1(divbyzero__this).html", "untyped_divbyzero.f2(divbyzero__this,_untyped_b).html", "untyped_divbyzero.f3(divbyzero__this,_untyped_i).html", "untyped_divbyzero.f4(divbyzero__this,_untyped_a).html", "untyped_divbyzero.f5(divbyzero__this,_untyped_a).html", "untyped_divbyzero.f6(divbyzero__this).html" ],
+  "info" : {
+    "cfgs" : "7",
+    "duration" : "9ms",
+    "end" : "2025-09-07T17:18:37.225+02:00",
+    "expressions" : "56",
+    "files" : "10",
+    "globals" : "0",
+    "members" : "7",
+    "programs" : "1",
+    "start" : "2025-09-07T17:18:37.216+02:00",
+    "statements" : "25",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "7"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "DivisionByZeroChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/divbyzero/intervals-divbyzero"
+  }
+}

@@ -1,0 +1,77 @@
+========================================
+STUDENT PROGRAMS TEST SUITE EXECUTION
+========================================
+Start time: 2025-09-07_19-09-38
+Total tests: 1
+
+Checking student programs directories...
+Found       16 .imp files in student-programs/overflow
+Found       13 .imp files in student-programs/divbyzero
+Found       12 .imp files in student-programs/taint
+
+========================================
+STUDENT PROGRAMS INVENTORY
+========================================
+Overflow programs:
+  - 875290-Overflow.imp
+  - 879899-1-overflow.imp
+  - 879899-2-overflow.imp
+  - 879899-3-overflow.imp
+  - 879899-4-overflow.imp
+  - 880036_overflow_test_v0.imp
+  - 884046-Overflow-drawing.imp
+  - 884046-Overflow.imp
+  - 885768_overflow_testcases.imp
+  - 885768_overflow.imp
+  - 888851_overflow_rsa.imp
+  - 889536-overflow.imp
+  - 890488_890441overflow.imp
+  - 890550_overflow.imp
+  - 892631-overflow.imp
+  - 908677-benchmark-overflow.imp
+
+Division by Zero programs:
+  - 879899-1-by-zero.imp
+  - 879899-2-by-zero.imp
+  - 879899-3-by-zero.imp
+  - 880036_divby0_test_v0.imp
+  - 880092-division-by-zero.imp
+  - 884046-DivByZero.imp
+  - 885768_divbyzero_testcases.imp
+  - 885768_divbyzero.imp
+  - 889536-div0.imp
+  - 890488_890441divzero.imp
+  - 890550_divbyzero.imp
+  - 892631-divbyzero.imp
+  - 908677-benchmark-divbyzero.imp
+
+Taint Analysis programs:
+  - 879899-taint-3lvs.imp
+  - 880036_taint_search_query_sanitized.imp
+  - 880036_taint_search_query_w_params.imp
+  - 880036_taint_search_query_wrong_way.imp
+  - 880092-taint-3lvls.imp
+  - 884046-taint-3lvs.imp
+  - 885768_taint_3lvs.imp
+  - 889536-taint.imp
+  - 890488_890441taint.imp
+  - 890550_taintthreelevels.imp
+  - 892631-taint3lvs.imp
+  - 908677-benchmark-taint-3lvs.imp
+
+========================================
+RUNNING TESTS
+========================================
+✗ FAILED: 0
+
+========================================
+EXECUTION SUMMARY
+========================================
+Total tests run: 1
+Passed: 0
+Failed: 1
+End time: Sun Sep  7 19:09:41 CEST 2025
+
+FAILED TESTS:
+  - 0
+

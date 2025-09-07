@@ -1,0 +1,82 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/banking-simulation.imp':10:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 1E+3 exceeds maximum 255.0 (wraps to 232.0) for variable 'final_fee'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':10:24] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 100000 exceeds maximum 255.0 (wraps to 160.0) for variable 'fee'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':12:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 800 exceeds maximum 255.0 (wraps to 32.0) for variable 'temp_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':12:27] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 1000 exceeds maximum 255.0 (wraps to 232.0) for variable 'account_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':13:26] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 800 exceeds maximum 255.0 (wraps to 32.0) for variable 'temp_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':13:41] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 1E+3 exceeds maximum 255.0 (wraps to 232.0) for variable 'final_fee'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':13:8] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 underflow detected: value -200 below minimum 0.0 (wraps to 56.0) for variable 'account_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':17:23] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 underflow detected: value -200 below minimum 0.0 (wraps to 56.0) for variable 'account_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':20:30] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 500 exceeds maximum 255.0 (wraps to 244.0) for variable 'daily_limit'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':24:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 underflow detected: value -200 below minimum 0.0 (wraps to 56.0) for variable 'compound_interest'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':24:32] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 underflow detected: value -200 below minimum 0.0 (wraps to 56.0) for variable 'account_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':33:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 305 exceeds maximum 255.0 (wraps to 49.0) for variable 'overflow_test'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':36:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Variable 'result' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':3:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 1000 exceeds maximum 255.0 (wraps to 232.0) for variable 'account_balance'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':43:19] on 'untyped BankingSimulation::calculate_fee(BankingSimulation* this, untyped amount)': [EXPRESSION] Variable 'amount' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':49:12] on 'untyped BankingSimulation::validate_transfer(BankingSimulation* this, untyped amount)': [EXPRESSION] Potential uint8 overflow detected: value 500 exceeds maximum 255.0 (wraps to 244.0) for variable 'limit'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':51:12] on 'untyped BankingSimulation::validate_transfer(BankingSimulation* this, untyped amount)': [EXPRESSION] Variable 'amount' has unknown value - potential uint8 overflow/underflow"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':51:21] on 'untyped BankingSimulation::validate_transfer(BankingSimulation* this, untyped amount)': [EXPRESSION] Potential uint8 overflow detected: value 500 exceeds maximum 255.0 (wraps to 244.0) for variable 'limit'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':6:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 500 exceeds maximum 255.0 (wraps to 244.0) for variable 'daily_limit'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':8:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 20000 exceeds maximum 255.0 (wraps to 32.0) for variable 'large_amount'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':9:12] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 100000 exceeds maximum 255.0 (wraps to 160.0) for variable 'fee'"
+  }, {
+    "message" : "['inputs/banking-simulation.imp':9:18] on 'untyped BankingSimulation::main(BankingSimulation* this)': [EXPRESSION] Potential uint8 overflow detected: value 20000 exceeds maximum 255.0 (wraps to 32.0) for variable 'large_amount'"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_BankingSimulation.calculate_fee(BankingSimulation__this,_untyped_amount).html", "untyped_BankingSimulation.main(BankingSimulation__this).html", "untyped_BankingSimulation.validate_transfer(BankingSimulation__this,_untyped_amount).html" ],
+  "info" : {
+    "cfgs" : "3",
+    "duration" : "89ms",
+    "end" : "2025-09-07T18:42:13.938+02:00",
+    "expressions" : "94",
+    "files" : "6",
+    "globals" : "0",
+    "members" : "3",
+    "programs" : "1",
+    "start" : "2025-09-07T18:42:13.849+02:00",
+    "statements" : "35",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "22"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "OverflowChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/overflow/banking-overflow-uint8"
+  }
+}

@@ -1,0 +1,91 @@
+========================================
+Running: testDivisionByZeroCryptomining
+Started at: Sun Sep  7 19:03:34 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testDivisionByZeroCryptomining STANDARD_OUT
+    === STARTING DIVISION BY ZERO ANALYSIS: CRYPTOCURRENCY MINING ===
+    Input file: inputs/cryptocurrency-mining.imp
+    Target type: FLOAT32 for profitability calculations
+    Domain: Intervals
+    Expected: Division by zero in profitability, efficiency calculations
+    --- Starting division by zero analysis setup ---
+    Reading program from: inputs/cryptocurrency-mining.imp
+    2025-09-07 19:03:35,457  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/cryptocurrency-mining.imp 
+    Program parsed successfully. CFGs found: 1
+    Output directory: outputs/divbyzero/crypto-divbyzero
+    Target numerical type for precision: float32
+    Abstract domain: ValueEnvironment
+    Configuration complete. Starting LiSA analysis...
+    2025-09-07 19:03:35,504  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (1):
+        DivisionByZeroChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/divbyzero/crypto-divbyzero
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:35,516  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:35,517  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:35,518  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 247875ns] 
+    2025-09-07 19:03:35,518  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:35,518  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:35,520  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:35,520  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:35,521  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:35,555  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 34ms 824208ns] 
+    2025-09-07 19:03:35,555  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 36ms 797542ns] 
+    2025-09-07 19:03:35,555  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:35,555  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:35,581  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 25ms 277042ns] 
+    2025-09-07 19:03:35,591  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:35,591  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:35,592  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 774834ns] 
+    2025-09-07 19:03:35,592  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 75ms 975292ns] 
+    2025-09-07 19:03:35,601  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 87ms (started: 2025-09-07T19:03:35.506+02:00, ended: 2025-09-07T19:03:35.593+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 27
+    Expressions: 78
+    Generated Warnings: 0
+    Generated Files: 4 
+    2025-09-07 19:03:35,602  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:35,651  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Division by zero analysis setup finished ---
+    Analysis completed. Check outputs/divbyzero/crypto-divbyzero/ for detailed results
+    === DIVISION BY ZERO ANALYSIS CRYPTOCURRENCY FINISHED ===
+
+
+BUILD SUCCESSFUL in 701ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:36 CEST 2025
+Exit code: 0
+========================================

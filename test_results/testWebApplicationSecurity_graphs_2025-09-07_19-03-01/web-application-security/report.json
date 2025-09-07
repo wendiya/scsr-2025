@@ -1,0 +1,116 @@
+{
+  "warnings" : [ {
+    "message" : "['inputs/web_application_security.imp':103:27] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':104:24] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':104:24] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':105:28] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':105:28] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':107:27] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':108:28] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'html' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':108:28] on 'untyped WebApplication::processUserProfile(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':119:31] on 'untyped WebApplication::adminPanel(WebApplication* this, untyped isAdmin)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of logMessage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':119:31] on 'untyped WebApplication::adminPanel(WebApplication* this, untyped isAdmin)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'message' of logMessage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':120:26] on 'untyped WebApplication::adminPanel(WebApplication* this, untyped isAdmin)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':120:26] on 'untyped WebApplication::adminPanel(WebApplication* this, untyped isAdmin)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':130:24] on 'untyped WebApplication::processComment(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':131:24] on 'untyped WebApplication::processComment(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':141:35] on 'untyped WebApplication::batchProcessUsers(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':141:35] on 'untyped WebApplication::batchProcessUsers(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':142:42] on 'untyped WebApplication::batchProcessUsers(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeQuery"
+  }, {
+    "message" : "['inputs/web_application_security.imp':142:42] on 'untyped WebApplication::batchProcessUsers(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 2nd parameter of this call may be tainted, and it reaches the sink at parameter 'sql' of executeQuery"
+  }, {
+    "message" : "['inputs/web_application_security.imp':154:25] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':154:25] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':155:25] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':156:25] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'html' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':156:25] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':157:29] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of logMessage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':162:29] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':163:29] on 'untyped WebApplication::complexFlow(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':62:27] on 'untyped WebApplication::loginUser(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'query' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':62:27] on 'untyped WebApplication::loginUser(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':63:34] on 'untyped WebApplication::loginUser(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'sql' of executeQuery"
+  }, {
+    "message" : "['inputs/web_application_security.imp':63:34] on 'untyped WebApplication::loginUser(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of executeQuery"
+  }, {
+    "message" : "['inputs/web_application_security.imp':71:28] on 'untyped WebApplication::loginUserSecure(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sink1"
+  }, {
+    "message" : "['inputs/web_application_security.imp':77:29] on 'untyped WebApplication::searchProducts(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'html' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':77:29] on 'untyped WebApplication::searchProducts(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':78:34] on 'untyped WebApplication::searchProducts(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'content' of renderPage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':78:34] on 'untyped WebApplication::searchProducts(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of renderPage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':85:30] on 'untyped WebApplication::searchProductsSecure(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of sinks"
+  }, {
+    "message" : "['inputs/web_application_security.imp':86:35] on 'untyped WebApplication::searchProductsSecure(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of renderPage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':92:32] on 'untyped WebApplication::downloadFile(WebApplication* this)': [EXPRESSION] [DEFINITE] The value passed for the 2nd parameter of this call is always tainted, and it reaches the sink at parameter 'message' of logMessage"
+  }, {
+    "message" : "['inputs/web_application_security.imp':92:32] on 'untyped WebApplication::downloadFile(WebApplication* this)': [EXPRESSION] [POSSIBLE] The value passed for the 1st parameter of this call may be tainted, and it reaches the sink at parameter 'this' of logMessage"
+  } ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_WebApplication.adminPanel(WebApplication__this,_untyped_isAdmin).html", "untyped_WebApplication.batchProcessUsers(WebApplication__this).html", "untyped_WebApplication.complexFlow(WebApplication__this).html", "untyped_WebApplication.downloadFile(WebApplication__this).html", "untyped_WebApplication.executeQuery(WebApplication__this,_untyped_sql).html", "untyped_WebApplication.executeQuery(WebApplication__this,_untyped_sql)_1473146719.html", "untyped_WebApplication.executeQuery(WebApplication__this,_untyped_sql)_1473156856.html", "untyped_WebApplication.getCookieValue(WebApplication__this).html", "untyped_WebApplication.getCookieValue(WebApplication__this)_1473153539.html", "untyped_WebApplication.getUrlParameter(WebApplication__this).html", "untyped_WebApplication.getUrlParameter(WebApplication__this)_1473157166.html", "untyped_WebApplication.getUserInput(WebApplication__this).html", "untyped_WebApplication.getUserInput(WebApplication__this)_1473150625.html", "untyped_WebApplication.getUserInput(WebApplication__this)_1473153353.html", "untyped_WebApplication.getUserInput(WebApplication__this)_1473153601.html", "untyped_WebApplication.getUserInput(WebApplication__this)_1473154159.html", "untyped_WebApplication.htmlEncode(WebApplication__this,_untyped_input).html", "untyped_WebApplication.htmlEncode(WebApplication__this,_untyped_input)_1473155430.html", "untyped_WebApplication.logMessage(WebApplication__this,_untyped_message).html", "untyped_WebApplication.logMessage(WebApplication__this,_untyped_message)_1473144828.html", "untyped_WebApplication.logMessage(WebApplication__this,_untyped_message)_1473145572.html", "untyped_WebApplication.logMessage(WebApplication__this,_untyped_message)_1473145696.html", "untyped_WebApplication.loginUser(WebApplication__this).html", "untyped_WebApplication.loginUserSecure(WebApplication__this).html", "untyped_WebApplication.processComment(WebApplication__this).html", "untyped_WebApplication.processUserProfile(WebApplication__this).html", "untyped_WebApplication.renderPage(WebApplication__this,_untyped_content).html", "untyped_WebApplication.renderPage(WebApplication__this,_untyped_content)_1473147184.html", "untyped_WebApplication.renderPage(WebApplication__this,_untyped_content)_1473148393.html", "untyped_WebApplication.sanitizer1(WebApplication__this,_untyped_input).html", "untyped_WebApplication.sanitizer1(WebApplication__this,_untyped_input)_1473160390.html", "untyped_WebApplication.sanitizer1(WebApplication__this,_untyped_input)_1473162188.html", "untyped_WebApplication.sanitizer2(WebApplication__this,_untyped_input).html", "untyped_WebApplication.sanitizer2(WebApplication__this,_untyped_input)_1473162219.html", "untyped_WebApplication.sanitizer2(WebApplication__this,_untyped_input)_1473164637.html", "untyped_WebApplication.searchProducts(WebApplication__this).html", "untyped_WebApplication.searchProductsSecure(WebApplication__this).html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query).html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473138380.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473139186.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473139961.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473140798.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473140891.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473140922.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473141201.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473141232.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473142255.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473144983.html", "untyped_WebApplication.sink1(WebApplication__this,_untyped_query)_1473150098.html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html).html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html)_1473139217.html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html)_1473140953.html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html)_1473141356.html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html)_1473142348.html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html)_1473143557.html", "untyped_WebApplication.sinks(WebApplication__this,_untyped_html)_1473145014.html", "untyped_WebApplication.source1(WebApplication__this).html", "untyped_WebApplication.source1(WebApplication__this)_1473148517.html", "untyped_WebApplication.source1(WebApplication__this)_1473148765.html", "untyped_WebApplication.source1(WebApplication__this)_1473149323.html", "untyped_WebApplication.source1(WebApplication__this)_1473150935.html", "untyped_WebApplication.source1(WebApplication__this)_1473151121.html", "untyped_WebApplication.source2(WebApplication__this).html", "untyped_WebApplication.source2(WebApplication__this)_1473144921.html", "untyped_WebApplication.source2(WebApplication__this)_1473149571.html", "untyped_WebApplication.source2(WebApplication__this)_1473150935.html", "untyped_WebApplication.source2(WebApplication__this)_1473151152.html", "untyped_WebApplication.sqlEscape(WebApplication__this,_untyped_input).html", "untyped_WebApplication.sqlEscape(WebApplication__this,_untyped_input)_1473154500.html", "untyped_WebApplication.validateInput(WebApplication__this,_untyped_input).html", "untyped_WebApplication.validateInput(WebApplication__this,_untyped_input)_1473159398.html", "untyped_WebApplication.validateInput(WebApplication__this,_untyped_input)_1473160204.html", "untyped_WebApplication.validateInput(WebApplication__this,_untyped_input)_1473163738.html" ],
+  "info" : {
+    "cfgs" : "25",
+    "duration" : "134ms",
+    "end" : "2025-09-07T19:04:02.441+02:00",
+    "expressions" : "176",
+    "files" : "76",
+    "globals" : "0",
+    "members" : "25",
+    "programs" : "1",
+    "start" : "2025-09-07T19:04:02.307+02:00",
+    "statements" : "86",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "39"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "TaintThreeLevelsChecker",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/taint/web-application-security"
+  }
+}

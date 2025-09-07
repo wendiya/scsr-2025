@@ -1,0 +1,91 @@
+========================================
+Running: testOverflowImageProcessingINT32
+Started at: Sun Sep  7 19:03:15 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testOverflowImageProcessingINT32 STANDARD_OUT
+    === STARTING OVERFLOW ANALYSIS: IMAGE PROCESSING INT32 ===
+    Input file: inputs/image-processing.imp
+    Target type: INT32 (range: -2147483648 to 2147483647)
+    Domain: Intervals
+    Expected: Pixel count overflow for large images, buffer size overflow
+    --- Starting overflow analysis setup ---
+    Reading program from: inputs/image-processing.imp
+    2025-09-07 19:03:15,791  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/image-processing.imp 
+    Program parsed successfully. CFGs found: 1
+    Output directory: outputs/overflow/image-overflow-int32
+    Target numerical type: int32 (range: -2.147483648E9 to 2.147483647E9)
+    Abstract domain: ValueEnvironment
+    Configuration complete. Starting LiSA analysis...
+    2025-09-07 19:03:15,837  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (1):
+        OverflowChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/overflow/image-overflow-int32
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:15,849  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:15,849  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:15,851  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 300583ns] 
+    2025-09-07 19:03:15,851  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:15,851  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:15,852  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:15,853  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:15,854  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/1 
+    2025-09-07 19:03:15,877  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [1 entries in 24ms 312666ns] 
+    2025-09-07 19:03:15,878  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 26ms 234792ns] 
+    2025-09-07 19:03:15,878  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:15,878  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/1 
+    2025-09-07 19:03:15,900  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [1 cfgs in 21ms 749792ns] 
+    2025-09-07 19:03:15,910  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:15,910  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:15,912  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 1ms 747750ns] 
+    2025-09-07 19:03:15,912  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 62ms 994417ns] 
+    2025-09-07 19:03:15,924  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 75ms (started: 2025-09-07T19:03:15.839+02:00, ended: 2025-09-07T19:03:15.914+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 1
+    CFGs: 1
+    Statements: 24
+    Expressions: 64
+    Generated Warnings: 1
+    Generated Files: 4 
+    2025-09-07 19:03:15,925  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:15,979  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    LiSA analysis completed successfully
+    --- Overflow analysis setup finished ---
+    Analysis completed. Check outputs/overflow/image-overflow-int32/ for detailed results
+    === OVERFLOW ANALYSIS IMAGE PROCESSING INT32 FINISHED ===
+
+
+BUILD SUCCESSFUL in 679ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:16 CEST 2025
+Exit code: 0
+========================================

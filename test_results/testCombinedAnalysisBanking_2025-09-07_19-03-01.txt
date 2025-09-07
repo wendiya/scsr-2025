@@ -1,0 +1,103 @@
+========================================
+Running: testCombinedAnalysisBanking
+Started at: Sun Sep  7 19:03:51 CEST 2025
+========================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+it.unive.scsr.ComprehensiveTestSuite > testCombinedAnalysisBanking STANDARD_OUT
+    === STARTING COMBINED ANALYSIS: BANKING SIMULATION ===
+    Input file: inputs/banking-simulation.imp
+    Target type: INT32
+    Checkers: Overflow + Division by Zero + Taint Analysis
+    Expected: Comprehensive vulnerability detection across multiple categories
+    --- Starting combined analysis setup ---
+    Reading program from: inputs/banking-simulation.imp
+    2025-09-07 19:03:52,290  INFO it.unive.lisa.imp.IMPFrontend - Reading file... inputs/banking-simulation.imp 
+    Program parsed successfully. CFGs found: 3
+    --- Loading taint annotations ---
+    Annotation summary: 0 sources, 0 sanitizers, 0 sink parameters
+    --- Taint annotations loading completed ---
+    Taint annotations loaded for combined analysis
+    Output directory: outputs/combined/banking-combined
+    Target numerical type: int32
+    Abstract domain: Intervals
+    Checkers: OverflowChecker + DivisionByZeroChecker + TaintChecker
+    All checkers configured. Starting LiSA analysis...
+    2025-09-07 19:03:52,342  INFO it.unive.lisa.LiSA - LiSA configuration:
+      syntacticChecks (0)
+      semanticChecks (3):
+        OverflowChecker
+        DivisionByZeroChecker
+        TaintChecker
+      analysisGraphs: HTML
+      serializeInputs: false
+      serializeResults: false
+      jsonOutput: true
+      workdir: outputs/combined/banking-combined
+      wideningThreshold: 5
+      recursionWideningThreshold: 5
+      glbThreshold: 5
+      descendingPhaseType: NONE
+      fixpointWorkingSet: DuplicateFreeFIFOWorkingSet
+      openCallPolicy: WorstCasePolicy
+      optimize: false
+      useWideningPoints: true
+      hotspots: unset
+      dumpForcesUnwinding: false 
+    2025-09-07 19:03:52,355  INFO it.unive.lisa.LiSA - Analysis time [start] 
+    2025-09-07 19:03:52,355  INFO it.unive.lisa.LiSARunner - Finalizing input program [start] 
+    2025-09-07 19:03:52,357  INFO it.unive.lisa.LiSARunner - Finalizing input program [stop] [completed in 1ms 939834ns] 
+    2025-09-07 19:03:52,357  WARN it.unive.lisa.LiSARunner - Skipping syntactic checks execution since none have been provided 
+    2025-09-07 19:03:52,358  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [start] 
+    2025-09-07 19:03:52,359  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Performing 1st fixpoint iteration 
+    2025-09-07 19:03:52,359  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [start] 
+    2025-09-07 19:03:52,360  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 1/3 
+    2025-09-07 19:03:52,387  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 2/3 
+    2025-09-07 19:03:52,388  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints: 3/3 
+    2025-09-07 19:03:52,388  INFO it.unive.lisa.interprocedural.context.ContextBasedAnalysis - Processing entrypoints [stop] [3 entries in 29ms 77916ns] 
+    2025-09-07 19:03:52,389  INFO it.unive.lisa.LiSARunner - Computing fixpoint over the whole program [stop] [completed in 31ms 87084ns] 
+    2025-09-07 19:03:52,389  INFO it.unive.lisa.LiSARunner - Dumping analysis results [start] 
+    2025-09-07 19:03:52,389  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 1/3 
+    2025-09-07 19:03:52,403  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 2/3 
+    2025-09-07 19:03:52,406  INFO it.unive.lisa.LiSARunner - Dumping analysis results: 3/3 
+    2025-09-07 19:03:52,418  INFO it.unive.lisa.LiSARunner - Dumping analysis results [stop] [3 cfgs in 28ms 589084ns] 
+    2025-09-07 19:03:52,427  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [start] 
+    2025-09-07 19:03:52,427  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units...: 1/1 
+    2025-09-07 19:03:52,429  INFO it.unive.lisa.checks.ChecksExecutor - Analyzing compilation units... [stop] [1 Units in 2ms 104458ns] 
+    2025-09-07 19:03:52,429  INFO it.unive.lisa.LiSA - Analysis time [stop] [completed in 74ms 963000ns] 
+    2025-09-07 19:03:52,439  INFO it.unive.lisa.LiSA - LiSA statistics:
+    Version 0.1b9
+    Duration: 87ms (started: 2025-09-07T19:03:52.344+02:00, ended: 2025-09-07T19:03:52.431+02:00)
+    Programs: 1
+    Units: 1
+    Globals: 0
+    Code Members: 3
+    CFGs: 3
+    Statements: 35
+    Expressions: 94
+    Generated Warnings: 4
+    Generated Files: 6 
+    2025-09-07 19:03:52,440  INFO it.unive.lisa.LiSA - Dumping analysis report to 'report.json' 
+    2025-09-07 19:03:52,491  INFO it.unive.lisa.LiSA - Report file dumped to 'report.json' 
+    Combined LiSA analysis completed successfully
+    --- Combined analysis setup finished ---
+    Analysis completed. Check outputs/combined/banking-combined/ for detailed results
+    Review all vulnerability types detected in single analysis run
+    === COMBINED ANALYSIS BANKING FINISHED ===
+
+
+BUILD SUCCESSFUL in 736ms
+4 actionable tasks: 1 executed, 3 up-to-date
+
+========================================
+Test completed at: Sun Sep  7 19:03:52 CEST 2025
+Exit code: 0
+========================================

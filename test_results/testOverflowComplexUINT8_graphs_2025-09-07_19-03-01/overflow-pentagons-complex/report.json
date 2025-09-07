@@ -1,0 +1,38 @@
+{
+  "warnings" : [ ],
+  "files" : [ "js/cytoscape-3.21.1.min.js", "js/cytoscape-graphml-1.0.6-hier.js", "js/jquery-3.0.0.min.js", "report.json", "untyped_OverflowComplex.main(OverflowComplex__this).html" ],
+  "info" : {
+    "cfgs" : "1",
+    "duration" : "80ms",
+    "end" : "2025-09-07T18:42:17.594+02:00",
+    "expressions" : "42",
+    "files" : "4",
+    "globals" : "0",
+    "members" : "1",
+    "programs" : "1",
+    "start" : "2025-09-07T18:42:17.514+02:00",
+    "statements" : "16",
+    "units" : "1",
+    "version" : "0.1b9",
+    "warnings" : "0"
+  },
+  "configuration" : {
+    "analysisGraphs" : "HTML",
+    "descendingPhaseType" : "NONE",
+    "dumpForcesUnwinding" : "false",
+    "fixpointWorkingSet" : "DuplicateFreeFIFOWorkingSet",
+    "glbThreshold" : "5",
+    "hotspots" : "unset",
+    "jsonOutput" : "true",
+    "openCallPolicy" : "WorstCasePolicy",
+    "optimize" : "false",
+    "recursionWideningThreshold" : "5",
+    "semanticChecks" : "",
+    "serializeInputs" : "false",
+    "serializeResults" : "false",
+    "syntacticChecks" : "",
+    "useWideningPoints" : "true",
+    "wideningThreshold" : "5",
+    "workdir" : "outputs/overflow/overflow-pentagons-complex"
+  }
+}
