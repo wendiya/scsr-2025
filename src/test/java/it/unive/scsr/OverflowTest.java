@@ -15,7 +15,7 @@ import it.unive.lisa.interprocedural.context.ContextBasedAnalysis;
 import it.unive.lisa.interprocedural.context.FullStackToken;
 import it.unive.lisa.program.Program;
 import it.unive.scsr.checkers.OverflowChecker;
-import it.unive.scsr.checkers.OverflowChecker.NumericalSize;
+import it.unive.scsr.NumericalSize;
 
 public class OverflowTest {
 	

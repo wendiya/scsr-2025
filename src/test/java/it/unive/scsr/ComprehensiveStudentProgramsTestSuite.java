@@ -10,7 +10,7 @@ import it.unive.lisa.imp.ParsingException;
 import it.unive.lisa.interprocedural.context.ContextBasedAnalysis;
 import it.unive.lisa.interprocedural.context.FullStackToken;
 import it.unive.lisa.program.Program;
-import it.unive.scsr.EnhancedDivisionByZeroChecker;
+import it.unive.scsr.checkers.DivisionByZeroChecker;
 import it.unive.scsr.checkers.OverflowChecker;
 import it.unive.scsr.checkers.TaintThreeLevelsChecker;
 import it.unive.scsr.NumericalSize;
@@ -38,7 +38,7 @@ public class ComprehensiveStudentProgramsTestSuite {
 
     @Test
     public void testStudentProgramsDivByZero() throws Exception {
-        runCheckerOnStudentPrograms("DivisionByZero", new EnhancedDivisionByZeroChecker(DIVZERO_TYPE), DIVZERO_DIRS);
+        runCheckerOnStudentPrograms("DivisionByZero", new DivisionByZeroChecker(DIVZERO_TYPE), DIVZERO_DIRS);
     }
 
     @Test

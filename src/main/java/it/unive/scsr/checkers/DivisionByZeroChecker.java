@@ -1,4 +1,4 @@
-package it.unive.scsr;
+package it.unive.scsr.checkers;
 
 import java.util.HashSet;
 import java.util.Iterator;

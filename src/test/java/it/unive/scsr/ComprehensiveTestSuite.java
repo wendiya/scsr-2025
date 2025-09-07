@@ -25,7 +25,7 @@ import it.unive.scsr.checkers.OverflowChecker;
 import it.unive.scsr.checkers.TaintChecker;
 import it.unive.scsr.checkers.TaintThreeLevelsChecker;
 import it.unive.scsr.NumericalSize;
-import it.unive.scsr.EnhancedDivisionByZeroChecker;
+import it.unive.scsr.checkers.DivisionByZeroChecker;
 
 public class ComprehensiveTestSuite {
 
@@ -39,7 +39,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING OVERFLOW ANALYSIS: UINT8 COMPLEX ===");
 		System.out.println("Input file: inputs/overflow-complex.imp");
 		System.out.println("Target type: UINT8 (range: 0-255)");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain Intervals");
 		System.out.println("Expected: Multiple overflow warnings for arithmetic operations exceeding 255");
 		
 		runOverflowAnalysis("inputs/overflow-complex.imp", NumericalSize.UINT8, "overflow-complex-uint8", 
@@ -54,7 +54,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING OVERFLOW ANALYSIS: INT16 COMPLEX ===");
 		System.out.println("Input file: inputs/overflow-complex.imp");
 		System.out.println("Target type: INT16 (range: -32768 to 32767)");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Fewer overflow warnings due to larger range, signed arithmetic handling");
 		
 		runOverflowAnalysis("inputs/overflow-complex.imp", NumericalSize.INT16, "overflow-complex-int16", 
@@ -69,7 +69,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING OVERFLOW ANALYSIS: FLOAT32 COMPLEX ===");
 		System.out.println("Input file: inputs/overflow-complex.imp");
 		System.out.println("Target type: FLOAT32 (range: -3.4e38 to 3.4e38)");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Precision loss warnings instead of hard overflows");
 		
 		runOverflowAnalysis("inputs/overflow-complex.imp", NumericalSize.FLOAT32, "overflow-complex-float32", 
@@ -84,7 +84,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING OVERFLOW ANALYSIS: BANKING SIMULATION UINT8 ===");
 		System.out.println("Input file: inputs/banking-simulation.imp");
 		System.out.println("Target type: UINT8 (range: 0-255)");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Overflow in fee calculations, compound interest, balance operations");
 		
 		runOverflowAnalysis("inputs/banking-simulation.imp", NumericalSize.UINT8, "banking-overflow-uint8", 
@@ -99,7 +99,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING OVERFLOW ANALYSIS: IMAGE PROCESSING INT32 ===");
 		System.out.println("Input file: inputs/image-processing.imp");
 		System.out.println("Target type: INT32 (range: -2147483648 to 2147483647)");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Pixel count overflow for large images, buffer size overflow");
 		
 		runOverflowAnalysis("inputs/image-processing.imp", NumericalSize.INT32, "image-overflow-int32", 
@@ -114,7 +114,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING OVERFLOW ANALYSIS: CRYPTOCURRENCY MINING UINT32 ===");
 		System.out.println("Input file: inputs/cryptocurrency-mining.imp");
 		System.out.println("Target type: UINT32 (range: 0 to 4294967295)");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Hash rate calculation overflow, reward accumulation overflow");
 		
 		runOverflowAnalysis("inputs/cryptocurrency-mining.imp", NumericalSize.UINT32, "crypto-overflow-uint32", 
@@ -129,7 +129,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING DIVISION BY ZERO ANALYSIS: COMPLEX SCENARIOS ===");
 		System.out.println("Input file: inputs/divbyzero-complex.imp");
 		System.out.println("Target type: INT32 for divisor analysis");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Multiple definite and possible division by zero cases");
 		
 		runDivisionByZeroAnalysis("inputs/divbyzero-complex.imp", NumericalSize.INT32, "divbyzero-complex", 
@@ -144,7 +144,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING DIVISION BY ZERO ANALYSIS: BANKING SIMULATION ===");
 		System.out.println("Input file: inputs/banking-simulation.imp");
 		System.out.println("Target type: FLOAT32 for interest rate calculations");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Division by zero in interest calculations, precision issues");
 		
 		runDivisionByZeroAnalysis("inputs/banking-simulation.imp", NumericalSize.FLOAT32, "banking-divbyzero", 
@@ -159,7 +159,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING DIVISION BY ZERO ANALYSIS: IMAGE PROCESSING ===");
 		System.out.println("Input file: inputs/image-processing.imp");
 		System.out.println("Target type: INT32 for scaling operations");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Division by zero in scaling operations, compression calculations");
 		
 		runDivisionByZeroAnalysis("inputs/image-processing.imp", NumericalSize.INT32, "image-divbyzero", 
@@ -174,7 +174,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("=== STARTING DIVISION BY ZERO ANALYSIS: CRYPTOCURRENCY MINING ===");
 		System.out.println("Input file: inputs/cryptocurrency-mining.imp");
 		System.out.println("Target type: FLOAT32 for profitability calculations");
-		System.out.println("Domain: EnhancedIntervals");
+		System.out.println("Domain: Intervals");
 		System.out.println("Expected: Division by zero in profitability, efficiency calculations");
 		
 		runDivisionByZeroAnalysis("inputs/cryptocurrency-mining.imp", NumericalSize.FLOAT32, "crypto-divbyzero", 
@@ -245,7 +245,7 @@ public class ComprehensiveTestSuite {
 		System.out.println("Input file: inputs/divbyzero-complex.imp");
 		System.out.println("Target type: INT32 for divisor analysis");
 		System.out.println("Domain: Pentagons (relational domain)");
-		System.out.println("Expected: Enhanced precision for relational constraints on divisors");
+		System.out.println("Expected: precision for relational constraints on divisors");
 		
 		runDivisionByZeroAnalysisPentagons("inputs/divbyzero-complex.imp", NumericalSize.INT32, "divbyzero-pentagons-complex");
 		
@@ -358,7 +358,7 @@ public class ComprehensiveTestSuite {
 			DefaultConfiguration.defaultTypeDomain());
 		
 		conf.interproceduralAnalysis = new ContextBasedAnalysis<>(FullStackToken.getSingleton());
-		conf.semanticChecks.add(new EnhancedDivisionByZeroChecker(size));
+		conf.semanticChecks.add(new DivisionByZeroChecker(size));
 		
 		System.out.println("Configuration complete. Starting LiSA analysis...");
 		
@@ -394,7 +394,7 @@ public class ComprehensiveTestSuite {
 			DefaultConfiguration.defaultTypeDomain());
 		
 		conf.interproceduralAnalysis = new ContextBasedAnalysis<>(FullStackToken.getSingleton());
-		conf.semanticChecks.add(new EnhancedDivisionByZeroChecker(size));
+		conf.semanticChecks.add(new DivisionByZeroChecker(size));
 		
 		System.out.println("Configuration complete. Starting LiSA analysis...");
 		
@@ -429,7 +429,7 @@ public class ComprehensiveTestSuite {
 			DefaultConfiguration.defaultTypeDomain());
 		
 		conf.interproceduralAnalysis = new ContextBasedAnalysis<>(FullStackToken.getSingleton());
-		conf.semanticChecks.add(new EnhancedDivisionByZeroChecker(size));
+		conf.semanticChecks.add(new DivisionByZeroChecker(size));
 		
 		System.out.println("Configuration complete. Starting LiSA analysis...");
 		
@@ -496,8 +496,8 @@ public class ComprehensiveTestSuite {
 		
 		System.out.println("Output directory: " + conf.workdir);
 		System.out.println("Target numerical type: " + size.getTypeName());
-		System.out.println("Abstract domain: EnhancedIntervals");
-		System.out.println("Checkers: EnhancedOverflowChecker + EnhancedDivisionByZeroChecker + TaintChecker");
+		System.out.println("Abstract domain: Intervals");
+		System.out.println("Checkers: OverflowChecker + DivisionByZeroChecker + TaintChecker");
 
 		conf.abstractState = DefaultConfiguration.simpleState(
 			DefaultConfiguration.defaultHeapDomain(),
@@ -508,7 +508,7 @@ public class ComprehensiveTestSuite {
 		
 		// Add all checkers for comprehensive analysis
 		conf.semanticChecks.add(new OverflowChecker(size));
-		conf.semanticChecks.add(new EnhancedDivisionByZeroChecker(size));
+		conf.semanticChecks.add(new DivisionByZeroChecker(size));
 		conf.semanticChecks.add(new TaintChecker());
 		
 		System.out.println("All checkers configured. Starting LiSA analysis...");
