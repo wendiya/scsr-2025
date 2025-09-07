@@ -1,0 +1,32 @@
+class DivByZeroComplex {
+    main() {
+        def dividend = 100;
+        def divisor = 5;
+        def result = 0;
+        def dynamic_div = 0;
+        
+        result = dividend / 0; 
+        
+        divisor = divisor - 5; 
+        result = dividend / divisor; 
+        
+        dynamic_div = 10 - 10; 
+        result = dividend / dynamic_div;
+        
+        def i = 5;
+        while (i > 0) {
+            result = 100 / i;
+            i = i - 1; 
+        }
+        
+        if (divisor == 0) {
+            result = 1 / divisor;
+        }
+        
+        def small_val = 1;
+        small_val = small_val / 1000;
+        result = 100 / small_val; 
+        
+        return;
+    }
+}

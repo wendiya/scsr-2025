@@ -1,0 +1,78 @@
+class TaintComplex {
+    source1() {
+        def result = 42;
+        return result;
+    }
+    
+    source2() {
+        def result = 100;
+        return result;
+    }
+    
+    sanitizer1(data) {
+        def result = data + 0;
+        return result;
+    }
+    
+    sanitizer2(data) {
+        def result = data * 1;
+        return result;
+    }
+    
+    sink1(data) {
+        def output = data;
+        return output;
+    }
+    
+    sinks(data1) {
+        def output = data1;
+        return output;
+    }
+    
+    propagate_taint(data) {
+        def result = data + 1;
+        return result;
+    }
+    
+    main() {
+        def tainted1 = 42;     
+        def tainted2 = 100;     
+        def clean_data = 0;
+
+        def _sink1 = tainted1; 
+
+        def indirect_taint = tainted1;
+        def _sink2 = indirect_taint; 
+
+        def temp_clean = tainted1; 
+        def _sink3 = temp_clean; 
+
+        def mixed_result = tainted1 + clean_data;
+        def _sink4 = mixed_result; 
+
+        def conditional_data = clean_data;
+        def some_condition = 1;
+        if (some_condition == 1) {
+            conditional_data = tainted2;
+        }
+        def _sink5 = conditional_data; 
+
+        def propagated = tainted1 + 1; 
+        def _sink6 = propagated; 
+
+        def chain1 = tainted1;
+        def chain2 = chain1;
+        def chain3 = chain2;
+        def _sink7 = chain3; 
+
+        def loop_data = tainted2;
+        def counter = 3;
+        while (counter > 0) {
+            loop_data = loop_data + 1; 
+            counter = counter - 1;
+        }
+        def _sink8 = loop_data; 
+
+        return;
+    }
+}

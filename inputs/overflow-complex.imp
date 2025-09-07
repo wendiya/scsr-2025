@@ -1,0 +1,28 @@
+class OverflowComplex {
+    main() {
+        def x = 200;
+        def y = 100;
+        def result = 0;
+        def counter = 0;
+        
+        result = x + y; 
+        
+        while (counter < 10) {
+            x = x + 50; 
+            counter = counter + 1;
+        }
+        
+        if (x > 100) {
+            y = y * 3; 
+        }
+        
+        def negative = 0;
+        negative = negative - 10; 
+        
+        def big1 = 16;
+        def big2 = 20;
+        def product = big1 * big2; 
+        
+        return;
+    }
+}

@@ -1,0 +1,41 @@
+class CryptocurrencyMining {
+    main() {
+        def hash_rate = 1000000; 
+        def difficulty = 1000;
+        def block_reward = 50;
+        def total_rewards = 0;
+        def power_consumption = 1500; 
+        
+        def seconds_per_day = 86400;
+        def daily_hashes = hash_rate * seconds_per_day; 
+        def blocks_per_day = daily_hashes / difficulty;
+        def daily_earnings = blocks_per_day * block_reward; 
+        
+        def days = 365;
+        while (days > 0) {
+            total_rewards = total_rewards + daily_earnings; 
+            days = days - 1;
+        }
+        
+        def hash_per_watt = hash_rate / power_consumption;
+        if (power_consumption == 0) {
+            hash_per_watt = hash_rate / power_consumption; 
+        }
+        
+        def network_hash = 1000000000;
+        def my_share = hash_rate / network_hash;
+        if (network_hash == 0) {
+            my_share = 1; 
+        }
+        
+        def electricity_cost = 10; 
+        def electricity_used = (power_consumption * 24) / 1000; 
+        def electricity_bill = electricity_used * electricity_cost;
+        def profit = daily_earnings - electricity_bill;
+        
+        def hardware_cost = 2000;
+        def days_to_roi = hardware_cost / profit; 
+        
+        return;
+    }
+}

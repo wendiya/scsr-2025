@@ -1,0 +1,37 @@
+class ImageProcessing {
+    main() {
+        def image_width = 1920;
+        def image_height = 1080;
+        def bytes_per_pixel = 4; 
+        def compression_ratio = 0;
+        
+        def total_pixels = image_width * image_height; 
+        def total_bytes = total_pixels * bytes_per_pixel; 
+        
+        def scale_factor = 100; 
+        scale_factor = scale_factor - 100; 
+        def new_width = (image_width * scale_factor) / 100; 
+        
+        def buffer_size = total_bytes;
+        if (buffer_size < 0) { 
+            buffer_size = 1000000; 
+        }
+        
+        def pixel_sum = 0;
+        def x = 0;
+        def y = 0;
+        while (y < image_height) {
+            x = 0;
+            while (x < image_width) {
+                pixel_sum = pixel_sum + 255; 
+                x = x + 1;
+            }
+            y = y + 1;
+        }
+        
+        compression_ratio = 0; 
+        def compressed_size = total_bytes / compression_ratio; 
+        
+        return;
+    }
+}
