@@ -1,0 +1,165 @@
+class WebApplication {
+
+    source1() {
+        return "malicious_sql_payload";
+    }
+    
+    source2() {
+        return "xss_script_payload";
+    }
+    
+    getUserInput() {
+        return "user_form_data";
+    }
+    
+    getCookieValue() {
+        return "cookie_data";
+    }
+    
+    getUrlParameter() {
+        return "url_param_data";
+    }
+
+    sanitizer1(input) {
+        return "sql_safe_query";
+    }
+    
+    sanitizer2(input) {
+        return "html_encoded_output";
+    }
+    
+    validateInput(input) {
+        return "validated_input";
+    }
+    
+    sqlEscape(input) {
+        return "escaped_sql_string";
+    }
+    
+    htmlEncode(input) {
+        return "encoded_html";
+    }
+
+    sink1(query) {
+    }
+    
+    sinks(html) {
+    }
+    
+    executeQuery(sql) {
+    }
+    
+    renderPage(content) {
+    }
+    
+    logMessage(message) {
+    }
+
+    loginUser() {
+        def username = this.source1();
+        def password = this.getUserInput();
+        
+        this.sink1(username);
+        this.executeQuery(password);
+    }
+    
+    loginUserSecure() {
+        def username = this.source1();
+        def password = this.getUserInput();
+        
+        def safeQuery = this.sanitizer1(username);
+        this.sink1(safeQuery);
+    }
+    
+    searchProducts() {
+        def searchTerm = this.source2();
+        
+        this.sinks(searchTerm);
+        this.renderPage(searchTerm);
+    }
+    
+    searchProductsSecure() {
+        def searchTerm = this.source2();
+        def encodedTerm = this.sanitizer2(searchTerm);
+        
+        this.sinks(encodedTerm);
+        this.renderPage(encodedTerm);
+    }
+    
+    downloadFile() {
+        def filename = this.getUrlParameter();
+        
+        this.logMessage(filename);
+    }
+    
+    processUserProfile() {
+        def name = this.getUserInput();
+        def email = this.getCookieValue();
+        def bio = this.source2();
+        
+        def safeName = this.validateInput(name);
+        def unsafeBio = bio;
+        
+        this.sink1(safeName);
+        this.sink1(email);
+        this.sink1(unsafeBio);
+        
+        this.sinks(safeName);
+        this.sinks(unsafeBio);
+    }
+    
+    adminPanel(isAdmin) {
+        def userInput = this.source1();
+        def command = userInput;
+        
+        if (isAdmin) {
+            command = this.validateInput(userInput);
+        }
+        
+        this.logMessage(command);
+        this.sink1(command);
+    }
+    
+    processComment() {
+        def comment = this.source2();
+        
+        def step1 = this.validateInput(comment);
+        def step2 = this.htmlEncode(step1);
+        def step3 = this.sqlEscape(step2);
+        
+        this.sink1(step3);
+        this.sinks(step2);
+    }
+    
+    batchProcessUsers() {
+        def usernames = new string[3];
+        usernames[0] = "admin";
+        usernames[1] = this.source1();
+        usernames[2] = "guest";
+        
+        for (def i = 0; i < 3; i = i + 1) {
+            this.sink1(usernames[i]);
+            this.executeQuery(usernames[i]);
+        }
+    }
+
+    complexFlow() {
+        def input1 = this.source1();
+        def input2 = this.getUserInput();
+        def clean = "hardcoded_value";
+        
+        def mixed1 = input1;
+        def mixed2 = clean;
+        
+        this.sink1(mixed1);
+        this.sink1(mixed2);
+        this.sinks(input2);
+        this.logMessage(clean);
+        
+        def sanitized1 = this.sanitizer1(input1);
+        def sanitized2 = this.sanitizer2(input2);
+        
+        this.sink1(sanitized1);
+        this.sinks(sanitized2);
+    }
+}

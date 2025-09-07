@@ -1,0 +1,176 @@
+class FinancialAPI {
+
+    source1() {
+        return "external_market_data";
+    }
+    
+    source2() {
+        return "user_transaction_request";
+    }
+    
+    getAPIRequest() {
+        return "api_request_payload";
+    }
+    
+    getExternalFeed() {
+        return "external_financial_data";
+    }
+    
+    getTransactionData() {
+        return "transaction_payload";
+    }
+
+    sanitizer1(data) {
+        return "validated_financial_data";
+    }
+    
+    sanitizer2(transaction) {
+        return "safe_transaction";
+    }
+    
+    validateAmount(amount) {
+        return "100.00";
+    }
+    
+    validateAccount(account) {
+        return "account_12345";
+    }
+    
+    encryptSensitive(data) {
+        return "encrypted_data";
+    }
+
+    sink1(query) {
+    }
+    
+    sinks(logEntry) {
+    }
+    
+    executeTransaction(txData) {
+    }
+    
+    updateBalance(accountData) {
+    }
+    
+    sendAuditLog(auditData) {
+    }
+
+    processTransfer() {
+        def fromAccount = this.getTransactionData();
+        def toAccount = this.getAPIRequest();
+        def amount = this.source2();
+        
+        this.sink1(fromAccount);
+        this.sinks(amount);
+        this.executeTransaction(toAccount);
+    }
+    
+    processTransferSecure() {
+        def fromAccount = this.getTransactionData();
+        def toAccount = this.getAPIRequest();
+        def amount = this.source2();
+        
+        def validFromAccount = this.validateAccount(fromAccount);
+        def validToAccount = this.validateAccount(toAccount);
+        def validAmount = this.validateAmount(amount);
+        
+        def safeData = this.sanitizer1(validAmount);
+        this.sink1(safeData);
+        
+        this.sinks(validAmount);
+    }
+    
+    processMarketData() {
+        def marketFeed = this.source1();
+        
+        this.sink1(marketFeed);
+        this.sinks(marketFeed);
+    }
+    
+    processMarketDataSecure() {
+        def marketFeed = this.source1();
+        def validatedData = this.sanitizer1(marketFeed);
+        
+        this.sink1(validatedData);
+        this.sinks(validatedData);
+    }
+    
+    getAccountBalance() {
+        def accountPath = this.getAPIRequest();
+        def userID = this.getTransactionData();
+        
+        this.sink1(accountPath);
+        this.sinks(userID);
+        this.updateBalance(accountPath);
+    }
+    
+    processPayment(isPrivilegedUser) {
+        def paymentData = this.source2();
+        def processedData = paymentData;
+        
+        if (isPrivilegedUser) {
+            processedData = this.sanitizer2(paymentData);
+        }
+        
+        this.sink1(processedData);
+        this.sinks(processedData);
+        this.executeTransaction(processedData);
+    }
+    
+    storeSensitiveData() {
+        def accountNumber = this.getTransactionData();
+        def ssn = this.getAPIRequest();
+        
+        def encryptedAccount = this.encryptSensitive(accountNumber);
+        def plainSSN = ssn;
+        
+        this.sink1(encryptedAccount);
+        this.sink1(plainSSN);
+        
+        this.sinks(encryptedAccount);
+        this.sinks(plainSSN);
+    }
+    
+    calculateInterest() {
+        def principal = this.source1();
+        def rate = this.getExternalFeed();
+        
+        this.sinks(principal);
+        this.sink1(rate);
+        this.updateBalance(principal);
+    }
+    
+    processBatchTransactions() {
+        def transactions = new string[4];
+        transactions[0] = "clean_transfer";
+        transactions[1] = this.source1();
+        transactions[2] = "clean_deposit";
+        transactions[3] = this.getTransactionData();
+        
+        for (def i = 0; i < 4; i = i + 1) {
+            this.sink1(transactions[i]);
+            this.sinks(transactions[i]);
+            this.executeTransaction(transactions[i]);
+        }
+    }
+    
+    validatePaymentChain() {
+        def rawPayment = this.source2();
+        
+        def step1 = this.validateAmount(rawPayment);
+        def step2 = rawPayment;
+        def step3 = this.sanitizer2(step1);
+        
+        this.sink1(step1);
+        this.sink1(step2);
+        this.sink1(step3);
+        
+        this.sinks(step1);
+        this.sinks(step2);
+        this.sinks(step3);
+        
+        this.executeTransaction(step1);
+        this.executeTransaction(step2);
+        this.executeTransaction(step3);
+    }
+}
