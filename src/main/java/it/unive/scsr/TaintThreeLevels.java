@@ -9,96 +9,103 @@ import it.unive.lisa.symbolic.value.operator.binary.BinaryOperator;
 import it.unive.lisa.util.representation.StringRepresentation;
 import it.unive.lisa.util.representation.StructuredRepresentation;
 
-public class TaintThreeLevels extends BaseTaint<TaintThreeLevels> {
+public class TaintThreeLevels extends BaseTaint<TaintThreeLevels>  {
 
 	/*
-	 * Lattice of Taint Domain with three levels
+	 * This is a simple taint lattice with three main levels:
 	 * 
 	 * 	  TOP
-	 * 	/  	   \
-	 * TAINT	CLEAN
-	 *  \      /
+	 * 	/   \
+	 * TAINT  CLEAN
+	 *  \     /
 	 *   BOTTOM
 	 *   
-	 * Element meanings:
-	 * - TOP: might be tainted or clean (unknown)
-	 * - TAINT: definitely tainted
-	 * - CLEAN: definitely clean
-	 * - BOTTOM: error state
+	 * Basically:
+	 * - TOP means it might be tainted or clean (we are unsure)
+	 * - TAINT means definitely tainted
+	 * - CLEAN means definitely clean
+	 * - BOTTOM represents an error or undefined state
 	 */
+
+	// defining constants for the different lattice elements
+	public static final TaintThreeLevels TOP = new TaintThreeLevels(TaintValue.TOP);
+	public static final TaintThreeLevels TAINT = new TaintThreeLevels(TaintValue.TAINT);
+	public static final TaintThreeLevels CLEAN = new TaintThreeLevels(TaintValue.CLEAN);
+	public static final TaintThreeLevels BOTTOM = new TaintThreeLevels(TaintValue.BOTTOM);
 	
-	private static final TaintThreeLevels TOP = new TaintThreeLevels(State.TOP);
-	private static final TaintThreeLevels TAINT = new TaintThreeLevels(State.TAINT);
-	private static final TaintThreeLevels CLEAN = new TaintThreeLevels(State.CLEAN);
-	private static final TaintThreeLevels BOTTOM = new TaintThreeLevels(State.BOTTOM);
-	
-	private enum State {
+	// the actual value stored in this element
+	private enum TaintValue {
 		TOP, TAINT, CLEAN, BOTTOM
 	}
 	
-	private final State state;
+	private final TaintValue value;
 	
-	public TaintThreeLevels() {
-		this(State.TOP);
+	// private constructor used internally to create lattice elements
+	private TaintThreeLevels(TaintValue value) {
+		this.value = value;
 	}
 	
-	public TaintThreeLevels(State state) {
-		this.state = state;
+	// default constructor defaults to TOP because we are unsure
+	public TaintThreeLevels() {
+		this.value = TaintValue.TOP;
 	}
 	
 	@Override
 	public TaintThreeLevels lubAux(TaintThreeLevels other) throws SemanticException {
-		if (this.state == State.BOTTOM) return other;
-		if (other.state == State.BOTTOM) return this;
-		
-		if (this.state == State.TOP || other.state == State.TOP) return TOP;
-		
-		if (this.state == other.state) return this;
-		
-		// TAINT ⊔ CLEAN = TOP
+		// join operation: combines two elements
+		if (this == BOTTOM) return other; // BOTTOM doesn't affect join
+		if (other == BOTTOM) return this;
+		if (this == other) return this; // same element, just return it
+		// if one is TAINT and the other is CLEAN, result is TOP
 		return TOP;
-	}
-
-	@Override
-	public boolean lessOrEqualAux(TaintThreeLevels other) throws SemanticException {
-		if (this.state == State.BOTTOM) return true;
-		if (other.state == State.TOP) return true;
-		if (this.state == other.state) return true;
-		
-		return false;
-	}
-
-	@Override
-	public TaintThreeLevels top() {
-		return TOP;
-	}
-
-	@Override
-	public TaintThreeLevels bottom() {
-		return BOTTOM;
-	}
-
-	@Override
-	protected TaintThreeLevels tainted() {
-		return TAINT;
-	}
-
-	@Override
-	protected TaintThreeLevels clean() {
-		return CLEAN;
-	}
-
-	@Override
-	public boolean isAlwaysTainted() {
-		return this.state == State.TAINT;
-	}
-
-	@Override
-	public boolean isPossiblyTainted() {
-		return this.state == State.TAINT || this.state == State.TOP;
 	}
 	
 	@Override
+	public boolean lessOrEqualAux(TaintThreeLevels other) throws SemanticException {
+		// define the partial order of the lattice
+		// BOTTOM ≤ TAINT ≤ TOP and BOTTOM ≤ CLEAN ≤ TOP
+		if (this == BOTTOM) return true;
+		if (other == TOP) return true;
+		if (this == other) return true;
+		return false;
+	}
+	
+	@Override
+	public TaintThreeLevels top() {
+		// return the TOP element
+		return TOP;
+	}
+	
+	@Override
+	public TaintThreeLevels bottom() {
+		// return the BOTTOM element
+		return BOTTOM;
+	}
+	
+	@Override
+	protected TaintThreeLevels tainted() {
+		// return the TAINT element
+		return TAINT;
+	}
+	
+	@Override
+	protected TaintThreeLevels clean() {
+		// return the CLEAN element
+		return CLEAN;
+	}
+	
+	@Override
+	public boolean isAlwaysTainted() {
+		// only TAINT is definitely tainted
+		return this == TAINT;
+	}
+	
+	@Override
+	public boolean isPossiblyTainted() {
+		// TOP and TAINT can both be tainted
+		return this == TOP || this == TAINT;
+	}
+	
 	public TaintThreeLevels evalBinaryExpression(
 			BinaryOperator operator,
 			TaintThreeLevels left,
@@ -106,78 +113,30 @@ public class TaintThreeLevels extends BaseTaint<TaintThreeLevels> {
 			ProgramPoint pp,
 			SemanticOracle oracle)
 			throws SemanticException {
-		
-		// If any operand is bottom, result is bottom
-		if (left.state == State.BOTTOM || right.state == State.BOTTOM) {
-			return BOTTOM;
-		}
-		
-		// If any operand is tainted, result is tainted
-		if (left.state == State.TAINT || right.state == State.TAINT) {
-			return TAINT;
-		}
-		
-		// If any operand is top (unknown), result is top
-		if (left.state == State.TOP || right.state == State.TOP) {
-			return TOP;
-		}
-		
-		// Both operands are clean, result is clean
-		if (left.state == State.CLEAN && right.state == State.CLEAN) {
-			return CLEAN;
-		}
-		
-		// Default case (should not reach here)
-		return TOP;
+		// if either operand is BOTTOM, result is BOTTOM (error)
+		if (left == BOTTOM || right == BOTTOM) return BOTTOM;
+		// if either operand is TAINT, result is definitely tainted
+		if (left == TAINT || right == TAINT) return TAINT;
+		// if either operand is TOP, result is TOP
+		if (left == TOP || right == TOP) return TOP;
+		// otherwise, both are CLEAN, so result is CLEAN
+		return CLEAN;
 	}
 	
 	@Override
 	public TaintThreeLevels wideningAux(TaintThreeLevels other) throws SemanticException {
-		// For taint analysis, widening is typically the same as lub
+		// widening is same as lub for this lattice because it's simple
 		return lubAux(other);
 	}
-
+	
+	// REPRESENTATION OF THE ELEMENT
+	// this is just for printing or visualizing the element
 	@Override
 	public StructuredRepresentation representation() {
-		switch (state) {
-			case BOTTOM:
-				return Lattice.bottomRepresentation();
-			case TOP:
-				return Lattice.topRepresentation();
-			case CLEAN:
-				return new StringRepresentation("_");
-			case TAINT:
-				return new StringRepresentation("#");
-			default:
-				return new StringRepresentation("?");
-		}
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null || getClass() != obj.getClass()) return false;
-		TaintThreeLevels that = (TaintThreeLevels) obj;
-		return state == that.state;
-	}
-	
-	@Override
-	public int hashCode() {
-		return state.hashCode();
-	}
-	
-	@Override
-	public String toString() {
-		return representation().toString();
-	}
-	
-	@Override
-	public boolean isTop() {
-		return state == State.TOP;
-	}
-	
-	@Override
-	public boolean isBottom() {
-		return state == State.BOTTOM;
+		// BOTTOM and TOP get special representations, CLEAN is "_" and TAINT is "#"
+		return this == BOTTOM ? Lattice.bottomRepresentation() : 
+			   this == TOP ? Lattice.topRepresentation() : 
+			   this == CLEAN ? new StringRepresentation("_") : 
+			   new StringRepresentation("#");
 	}
 }

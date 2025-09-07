@@ -34,10 +34,8 @@ import it.unive.lisa.util.file.FileManager;
 import it.unive.scsr.checkers.TaintThreeLevelsChecker;
 
 public class TaintThreeLevelsTaskEvaluation {
-	
-	
-	
-	// we define the signatures for matching sources, sanitizers, and sinks
+    
+    // here I define which functions I consider sources, sanitizers, and sinks
 	String[] sources = new String[] {"source1", "source2"};
 	String[] sanitizers = new String[] {"sanitizer1", "sanitizer2"};
 	String[] sinks = new String[] {"sink1", "sinks"};
@@ -45,40 +43,40 @@ public class TaintThreeLevelsTaskEvaluation {
 
 	@Test
 	public void testTaintThreeLevels() throws ParsingException, AnalysisException {
-		// we parse the program to get the CFG representation of the code in it
+		// parse the input file to create the internal representation of the program
 		Program program = IMPFrontend.processFile("inputs/taint-3lvs-eval.imp");
 
-		// we load annotation for identify sources, sanitizer, and sinks during the analysis and checker execution
+		// I mark the sources, sanitizers, and sinks in the program so LiSA knows about them
 		loadAnnotations(program);
 		
-		// we build a new configuration for the analysis
+		// creating a configuration object to tell LiSA how to run
 		LiSAConfiguration conf = new DefaultConfiguration();
 
-		// we specify where we want files to be generated
+		// set the folder where LiSA will store output files
 		conf.workdir = "outputs/taint-3lvs-eval";
 
-		// we specify the visual format of the analysis results
+		// choose HTML for visual graphs of the analysis
 		conf.analysisGraphs = GraphType.HTML;
 		
-		// we specify the create a json file containing warnings triggered by the analysis
+		// enable JSON output to store warnings
 		conf.jsonOutput= true;
 
-		// we specify the analysis that we want to execute
-		
-		 conf.abstractState = DefaultConfiguration.simpleState(
+		// setup the abstract state for the taint analysis
+		conf.abstractState = DefaultConfiguration.simpleState(
 				DefaultConfiguration.defaultHeapDomain(),
 				new ValueEnvironment<>(new TaintThreeLevels()),
 				DefaultConfiguration.defaultTypeDomain());
 		 
-		 // we specify to perform an interprocedural analysis (require to recognize calls to sources, sanitizers, and sinks)
+		 // use interprocedural analysis so that function calls are handled correctly
 		 conf.interproceduralAnalysis = new ContextBasedAnalysis<>(FullStackToken.getSingleton());
 		 
-		 // the TaintChecker is executed after the taint analysis and it checks if a tainted value is flowed in a sink
+		 // add the TaintChecker to catch flows of tainted data into sinks
 		 conf.semanticChecks.add(new TaintThreeLevelsChecker());
 		 
 		conf.serializeResults = true;
 		conf.jsonOutput = true;
 		
+		// try to clean the working directory before running
 		try {
 			FileManager.forceDeleteFolder(conf.workdir);
 		} catch (IOException e) {
@@ -86,22 +84,23 @@ public class TaintThreeLevelsTaskEvaluation {
 			fail("Cannot delete working directory '" + conf.workdir + "': " + e.getMessage());
 		}
 		 
-		// we instantiate LiSA with our configuration
+		// create a LiSA instance with the configuration we just set
 		LiSA lisa = new LiSA(conf);
 		
-
-		// finally, we tell LiSA to analyze the program
+		// actually run the analysis on the program
 		lisa.run(program);
 		
-
+		// prepare paths to compare expected and actual output
 		Path expectedPath = Paths.get("expected", "taint-3lvs-eval");
 		Path actualPath = Paths.get("outputs", "taint-3lvs-eval");
 
 		File expFile = Paths.get(expectedPath.toString(), "report.json").toFile();
 		File actFile = Paths.get(actualPath.toString(), "report.json").toFile();
 		try {
+			// read both JSON reports
 			JsonReport expected = JsonReport.read(new FileReader(expFile));
 			JsonReport actual = JsonReport.read(new FileReader(actFile));
+			// check if the analysis results match what we expect
 			assertTrue("Results are different",
 					JsonReportComparer.compare(expected, actual, expectedPath.toFile(), actualPath.toFile()));
 		} catch (FileNotFoundException e) {
@@ -115,15 +114,18 @@ public class TaintThreeLevelsTaskEvaluation {
 
 
 	private void loadAnnotations(Program program) {
-		
+		// go through all classes and their code members
 		for(Unit unit : program.getUnits()) {
 			if(unit instanceof ClassUnit) {
 				ClassUnit cunit = (ClassUnit) unit;
 				for(CodeMember cm : cunit.getInstanceCodeMembers(false)) {
+					// if it's a source, add the tainted annotation
 					if(isSource(cm))
 						cm.getDescriptor().getAnnotations().addAnnotation(TaintThreeLevels.TAINTED_ANNOTATION);
+					// if it's a sanitizer, mark it as clean
 					else if(isSanitizer(cm)) 
 						cm.getDescriptor().getAnnotations().addAnnotation(TaintThreeLevels.CLEAN_ANNOTATION);
+					// if it's a sink, mark its parameters so LiSA knows data flows there
 					else if(isSink(cm))
 						for(Parameter param : cm.getDescriptor().getFormals()) {
 							param.addAnnotation(TaintThreeLevelsChecker.SINK_ANNOTATION);
@@ -131,11 +133,11 @@ public class TaintThreeLevelsTaskEvaluation {
 				}	
 			}
 		}
-		
 	}
 
 
 	private boolean isSource(CodeMember cm) {
+		// check if the member's name is in the sources list
 		for(String signatureName : sources) {
 			if(cm.getDescriptor().getName().equals(signatureName))
 				return true;
@@ -145,6 +147,7 @@ public class TaintThreeLevelsTaskEvaluation {
 	
 
 	private boolean isSanitizer(CodeMember cm) {
+		// check if the member's name is in the sanitizers list
 		for(String signatureName : sanitizers) {
 			if(cm.getDescriptor().getName().equals(signatureName))
 				return true;
@@ -154,6 +157,7 @@ public class TaintThreeLevelsTaskEvaluation {
 	
 
 	private boolean isSink(CodeMember cm) {
+		// check if the member's name is in the sinks list
 		for(String signatureName : sinks) {
 			if(cm.getDescriptor().getName().equals(signatureName))
 				return true;
